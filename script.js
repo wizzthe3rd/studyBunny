@@ -11,6 +11,8 @@ function startTimer(){
 
 function getTargetTime(){
     selectedTime = targetTime.value;
+    showTimeModal();
+
 }
 
 function showTimeModal(){
