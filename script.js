@@ -15,7 +15,7 @@ function getTargetTime(){
 
 function showTimeModal(){
     document.getElementById('time-modal').classList.toggle('active');
-    document.getElementById('overlay').classList.toggle()
+    document.getElementById('overlay').classList.toggle('active')
 }
 
 function updateTime(){

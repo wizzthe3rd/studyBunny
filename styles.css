@@ -37,7 +37,7 @@ button, input{
 
 nav{
     display: flex;
-    gap: 220px;
+    gap: 215px;
     justify-content: start;
     align-items: center;
     margin: 10px;
@@ -56,14 +56,15 @@ nav{
 #line1, #line2, #line3{
     background-color: black;
     border-radius: 4px;
-    height: 4px;
-    width: 20px;
+    height: 5px;
+    width: 35px;
     margin: 6px 0;
     transition: 0.4s;
+    z-index: 5;
 }
 
 .change #line1{
-    transform: translate(0, 10px) rotate(-40deg);
+    transform: translate(0, 11px) rotate(-45deg);
 }
 
 .change #line2{
@@ -71,7 +72,7 @@ nav{
 }
 
 .change #line3{
-    transform: translate(0, -10px) rotate(35deg);
+    transform: translate(0, -11px) rotate(45deg);
 }
 
 .coins {
@@ -215,6 +216,10 @@ svg{
     top: 0;
     bottom: 0;
     background-color: rgba(0,0,0, .5);
+}
+
+#overlay.active{
+    display: block;
 }
 
 
