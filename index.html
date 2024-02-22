@@ -26,15 +26,19 @@
             <p id="countdown">00:00</p>
             <button id="timer-button" onclick="startTimer()">Start</button>
             <div class="time-modal">
+                <div id="time-modal-header">
+                    <p>Set Timer</p>
+                    <button id="time-modal-close">&times;</button>
+                </div>
+                <input type="time" id="time-modal-selector">
                 <button id="time-modal-submit">Start!</button>
-                <input type="time">
             </div>
         </div>
 
         <div class="footer">
 
         </div>
-
+        <div class="overlay"></div>
     </div>
         
     <script src="script.js"></script>
