@@ -18,6 +18,10 @@ nav, .container, .add-content{
     background-color: antiquewhite;
 }
 
+button, input{
+    cursor: pointer;
+}
+
 
 .container{
     border: 1px solid rgb(185, 167, 167);
@@ -83,8 +87,11 @@ nav{
 }
 
 #timer-button{
+    cursor: pointer;
     margin-top: 30px;
     width: 30%;
+    height: 15%;
+    font-size: 20px;
     border-radius: 4px;
 }
 
