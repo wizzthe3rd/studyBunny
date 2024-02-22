@@ -151,7 +151,7 @@ svg{
     bottom: 60%;
     border-radius: 8px;
     position: fixed;
-    background-color: antiquewhite; 
+    background-color: #d8e2eb; 
     border: 1px solid black;
     z-index: 10;
     width: 200px;
@@ -189,10 +189,12 @@ svg{
 
 #time-modal-submit{
     text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
-    background-color: rgb(227, 198, 159);
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+    background-color: #9BE198;
     margin-left: 20px;
     width: 50px;
     height: 30px;
+    border: 1px solid ghostwhite;
     border-radius: 8px;
 }
 
