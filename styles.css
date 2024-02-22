@@ -36,6 +36,7 @@ button, input{
 
 nav{
     display: flex;
+    gap: 220px;
     justify-content: start;
     align-items: center;
     margin: 10px;
@@ -53,14 +54,14 @@ nav{
 #line1, #line2, #line3{
     background-color: black;
     border-radius: 4px;
-    height: 5px;
-    width: 35px;
+    height: 4px;
+    width: 20px;
     margin: 6px 0;
     transition: 0.4s;
 }
 
 .change #line1{
-    transform: translate(0, 11px) rotate(-45deg);
+    transform: translate(0, 10px) rotate(-40deg);
 }
 
 .change #line2{
@@ -68,7 +69,30 @@ nav{
 }
 
 .change #line3{
-    transform: translate(0, -11px) rotate(40deg);
+    transform: translate(0, -10px) rotate(35deg);
+}
+
+.coins {
+    padding-left: 30px;
+    padding-right: 8px;
+    background-color: #F7B1AB;
+    border: 2px solid black;
+    border-radius: 25px;
+    width: fit-content;
+}
+
+.coins p {
+    background-color: #F7B1AB;
+    border-radius: 2px;
+}
+
+#coins_logo {
+    width: 10%;
+    height: 10%;
+}
+
+svg{
+    background-color: transparent;
 }
 
 .timer-indicator{
@@ -99,7 +123,7 @@ nav{
     border: 1px solid red;
     width: 100%;
     height: 200px;
-
+    background-color: #7A918D;
 }
 
 
