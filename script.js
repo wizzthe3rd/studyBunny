@@ -29,6 +29,12 @@ function updateTime(){
 }
 
 
-function changeMenuIcon(x){
+//function changeMenuIcon(x){
+  //  x.classList.toggle("change");
+//}
+
+function changeMenuIcon() {
+    var sidebar = document.getElementById("sidebar");
     x.classList.toggle("change");
+    sidebar.classList.toggle("active");
 }
