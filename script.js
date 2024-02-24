@@ -5,6 +5,9 @@ let selectedTime = 0;
 const countdownEL = document.getElementById('countdown');
 
 
+let menuOpen = true;
+
+
 function startTimer(){
     setInterval(updateTime, 1000);  //calls function every second
 }
@@ -29,6 +32,20 @@ function updateTime(){
 }
 
 
-function changeMenuIcon(x){
-    x.classList.toggle("change");
+function toggleMenu(){
+    document.querySelector('.menu').classList.toggle('active')
+    document.getElementById('overlay').classList.toggle('active')
 }
+function toggleModal(){
+    document.getElementById('time-modal').classList.toggle('active')
+    document.getElementById('overlay').classList.toggle('active')
+}
+
+document.getElementById('overlay').addEventListener('click', function(){
+    if (menuOpen){
+        toggleMenu();
+    } else {
+        toggleModal();
+    }
+});
+

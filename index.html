@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kurale&display=swap" rel="stylesheet">
     <title>Study Bunny</title>
 </head>
 <body>
     <div class="container">
         <nav>
-            <div class="hamburger-menu" onclick="changeMenuIcon(this)">
+            <div class="hamburger-menu" onclick="toggleMenu()">
                 <div id="line1"></div>
                 <div id="line2"></div>
                 <div id="line3"></div>
@@ -21,6 +24,15 @@
             <p> 0 </p>
             </div>
         </nav>
+
+        <div class="menu">
+            <div class="menu-nav">
+                <button class="close-button" id="menu-nav-close" onclick="toggleMenu()">&times;</button>
+            </div>
+            <div class="info-container">
+                
+            </div>
+        </div>
         
         <div class="timer-indicator">   
             <p id="countdown">00:00</p>
@@ -28,7 +40,7 @@
             <div id="time-modal">
                 <div id="time-modal-header">
                     <p>Set Timer</p>
-                    <button id="time-modal-close" onclick="showTimeModal()">&times;</button>
+                    <button class="close-button" id="time-modal-close" onclick="showTimeModal()">&times;</button>
                 </div>
                 <input type="time" id="time-modal-selector">
                 <button id="time-modal-submit">Start!</button>
@@ -38,7 +50,7 @@
         <div class="footer">
 
         </div>
-        <div id="overlay"></div>
+        <div id="overlay" ></div>
     </div>
         
     <script src="script.js"></script>
