@@ -42,5 +42,3 @@ function toggleModal(){
     document.getElementById('time-modal').classList.toggle('active')
     document.getElementById('overlay').classList.toggle('active')
 }
-
-
