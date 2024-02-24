@@ -1,6 +1,6 @@
 let startTime = 0;
 let time = startTime * 60;
-let targetTime = document.getElementById('modal-time-selector');
+let targetTime = document.getElementById('time-modal-selector');
 let selectedTime = 0;
 const countdownEL = document.getElementById('countdown');
 
@@ -14,8 +14,10 @@ function startTimer(){
 
 function getTargetTime(){
     selectedTime = targetTime.value;
+    console.log(selectedTime)
+    countdownEL.innerHTML = parseInt(selectedTime);
     showTimeModal();
-
+    updateTime();
 }
 
 function showTimeModal(){
@@ -28,7 +30,7 @@ function updateTime(){
     let seconds = time % 60;
 
     countdownEL.innerHTML = `${minutes}: ${seconds}`;
-    time++;
+    time--;
 }
 
 
@@ -41,11 +43,4 @@ function toggleModal(){
     document.getElementById('overlay').classList.toggle('active')
 }
 
-document.getElementById('overlay').addEventListener('click', function(){
-    if (menuOpen){
-        toggleMenu();
-    } else {
-        toggleModal();
-    }
-});
 
