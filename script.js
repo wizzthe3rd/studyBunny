@@ -38,7 +38,7 @@ function startTimer(){
         if (totalTime <= 0){
             clearInterval(timer); //stops timer setInterval
             document.getElementById('countdown').innerHTML = "00:00"
-            document.querySelector('.countdown-background').classList.toggle('start')
+            document.querySelector('.countdown-background').classList.toggle('active')
         } else{
             //decrements time every second
             totalTime--;
