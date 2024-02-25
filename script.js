@@ -48,7 +48,7 @@ function startTimer(){
             document.querySelector('.countdown-background').classList.toggle('active')
         } else{
             //decrements time every second
-            totalTime-=100;
+            totalTime--;
         }
 
 
