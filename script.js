@@ -11,7 +11,7 @@ document.querySelector('.time-modal-submit').addEventListener('click', function(
 
 
 function startTimer(){
-    document.querySelector('.countdown-background').classList.toggle('start')
+    document.querySelector('.countdown-background').classList.toggle('active')
     let minutes = parseInt(document.getElementById('min-input').value);
     let seconds = parseInt(document.getElementById('sec-input').value);
 
