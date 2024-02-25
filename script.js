@@ -1,3 +1,5 @@
+let currency = 0;
+
 
 document.getElementById('play-button').addEventListener('click', showTimeModal);
 document.querySelector('.hamburger-menu').addEventListener('click', toggleMenu);
@@ -8,6 +10,8 @@ document.querySelector('.time-modal-submit').addEventListener('click', function(
     startTimer();
     showTimeModal();
 });
+
+
 
 
 function startTimer(){
@@ -26,6 +30,7 @@ function startTimer(){
     
     let totalTime = (minutes * 60) + seconds; //total time in seconds
     // setInterval(updateTime, 1000);  //calls function every second
+    let currencyTime = totalTime;
      let timer = setInterval(function() {
         let minutes = Math.floor(totalTime / 60);   //minutes left, math.floor rounds down to the nearest whole number
         let seconds = totalTime % 60;
@@ -36,12 +41,14 @@ function startTimer(){
 
         document.getElementById('countdown').innerHTML = displayMin + ':' + displaySec;
         if (totalTime <= 0){
+            currency+= Math.floor(currencyTime / 2);
+            document.getElementById('currency').innerHTML = currency;
             clearInterval(timer); //stops timer setInterval
             document.getElementById('countdown').innerHTML = "00:00"
             document.querySelector('.countdown-background').classList.toggle('active')
         } else{
             //decrements time every second
-            totalTime--;
+            totalTime-=100;
         }
 
 
