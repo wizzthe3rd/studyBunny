@@ -7,6 +7,9 @@ const countdownEL = document.getElementById('countdown');
 
 let menuOpen = true;
 
+document.getElementById('play-button').addEventListener('click', showTimeModal);
+document.querySelector('.hamburger-menu').addEventListener('click', toggleMenu);
+
 
 function startTimer(){
     setInterval(updateTime, 1000);  //calls function every second

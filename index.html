@@ -16,25 +16,31 @@
     <div class="container">
         <nav>
             <div class="hamburger-shop-container">
-                <div class="hamburger-menu" onclick="toggleMenu()">
-                    <div id="line1"></div>
-                    <div id="line2"></div>
-                    <div id="line3"></div>
-                </div>
-                <svg id="shop-icon" width="30px" height="30px" viewBox="0 0 24 24" fill="none"         xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.5 11V14C3.5 17.7712 3.5 19.6569 4.67157 20.8284C5.84315 22 7.72876 22 11.5 22H12.5C16.2712 22 18.1569 22 19.3284 20.8284M20.5 11V14C20.5 15.1698 20.5 16.1581 20.465 17" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M9.50002 2H14.5M9.50002 2L8.84828 8.51737C8.66182 10.382 10.1261 12 12 12C13.874 12 15.3382 10.382 15.1518 8.51737L14.5 2M9.50002 2H7.41771C6.50969 2 6.05567 2 5.66628 2.10675C4.84579 2.33168 4.15938 2.89439 3.77791 3.65484M9.50002 2L8.77549 9.24527C8.61911 10.8091 7.30318 12 5.73155 12C3.8011 12 2.35324 10.2339 2.73183 8.34093L2.80002 8M14.5 2H16.5823C17.4904 2 17.9444 2 18.3338 2.10675C19.1542 2.33168 19.8407 2.89439 20.2221 3.65484C20.4032 4.01573 20.4922 4.46093 20.6703 5.35133L21.2682 8.34093C21.6468 10.2339 20.1989 12 18.2685 12C16.6969 12 15.3809 10.8091 15.2245 9.24527L14.5 2Z" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M9.5 21.5V18.5C9.5 17.5654 9.5 17.0981 9.70096 16.75C9.83261 16.522 10.022 16.3326 10.25 16.201C10.5981 16 11.0654 16 12 16C12.9346 16 13.4019 16 13.75 16.201C13.978 16.3326 14.1674 16.522 14.299 16.75C14.5 17.0981 14.5 17.5654 14.5 18.5V21.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                <svg class="hamburger-menu selector" width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 7L7 7M20 7L11 7" stroke="#989BE1" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M20 17H17M4 17L13 17" stroke="#989BE1" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M4 12H7L20 12" stroke="#989BE1" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                <svg class="shop-icon selector" width="30px" height="30px" viewBox="0 0 24 24" fill="none"         xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.5 11V14C3.5 17.7712 3.5 19.6569 4.67157 20.8284C5.84315 22 7.72876 22 11.5 22H12.5C16.2712 22 18.1569 22 19.3284 20.8284M20.5 11V14C20.5 15.1698 20.5 16.1581 20.465 17" stroke="#989BE1" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M9.50002 2H14.5M9.50002 2L8.84828 8.51737C8.66182 10.382 10.1261 12 12 12C13.874 12 15.3382 10.382 15.1518 8.51737L14.5 2M9.50002 2H7.41771C6.50969 2 6.05567 2 5.66628 2.10675C4.84579 2.33168 4.15938 2.89439 3.77791 3.65484M9.50002 2L8.77549 9.24527C8.61911 10.8091 7.30318 12 5.73155 12C3.8011 12 2.35324 10.2339 2.73183 8.34093L2.80002 8M14.5 2H16.5823C17.4904 2 17.9444 2 18.3338 2.10675C19.1542 2.33168 19.8407 2.89439 20.2221 3.65484C20.4032 4.01573 20.4922 4.46093 20.6703 5.35133L21.2682 8.34093C21.6468 10.2339 20.1989 12 18.2685 12C16.6969 12 15.3809 10.8091 15.2245 9.24527L14.5 2Z" stroke="#989BE1" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M9.5 21.5V18.5C9.5 17.5654 9.5 17.0981 9.70096 16.75C9.83261 16.522 10.022 16.3326 10.25 16.201C10.5981 16 11.0654 16 12 16C12.9346 16 13.4019 16 13.75 16.201C13.978 16.3326 14.1674 16.522 14.299 16.75C14.5 17.0981 14.5 17.5654 14.5 18.5V21.5" stroke="#989BE1" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
-            <div class="coins">
-            <p> 0 </p>
+            <div class="coins selector">
+                <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.15" d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" fill="##9BE198"/>
+                    <path d="M12 16H13C13.6667 16 15 15.6 15 14C15 12.4 13.6667 12 13 12H11C10.3333 12 9 11.6 9 10C9 8.4 10.3333 8 11 8H12M12 16H9M12 16V18M15 8H12M12 8V6M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#9BE198" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="coin-amount-container">
+                        <p>100</p>
+                    </div>
             </div>
         </nav>
 
         <div class="menu">
             <div class="menu-nav">
-                <button class="close-button" id="menu-nav-close" onclick="toggleMenu()">&times;</button>
+                <button class="close-button close" id="menu-nav-close" onclick="toggleMenu()">&times;</button>
             </div>
             <div class="info-container">
                 
@@ -42,20 +48,39 @@
         </div>
         
         <div class="timer-indicator">   
-            <p id="countdown" onclick="showTimeModal()">00:00</p>
+            <div class="countdown-background">
+                <p id="countdown">00:00</p>
+            </div>
+            <div class="shop-modal">
+                <div class="shop-modal-nav">
+                    <h3>Accessories!</h3>
+                    <button class="shop-modal-close selector" id="menu-nav-close">&times;</button>
+                </div>
+                <div class="shop-items">
+
+                </div>
+            </div>
             <div id="time-modal">
                 <div id="time-modal-header">
                     <p>Set Timer</p>
-                    <button class="close-button" id="time-modal-close" onclick="showTimeModal()">&times;</button>
+                    <button class="close-button selector" onclick="showTimeModal()">&times;</button>
                 </div>
-                <input type="time" id="time-modal-selector">
-                <button id="time-modal-submit" onclick="getTargetTime()">Start!</button>
+                <input type="number" id="min-input" placeholder="Minutes">
+                <input type="number" id="sec-input" placeholder="Seconds">
+                <button class="time-modal-submit selector" onclick="getTargetTime()">Start!</button>
             </div>
+        </div>
+
+        <div class="play-button-container">
+            <svg id="play-button" class="selector" width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21.4086 9.35258C23.5305 10.5065 23.5305 13.4935 21.4086 14.6474L8.59662 21.6145C6.53435 22.736 4 21.2763 4 18.9671L4 5.0329C4 2.72368 6.53435 1.26402 8.59661 2.38548L21.4086 9.35258Z" fill="#989BE1"/>
+                </svg>
         </div>
 
         <div class="footer">
             
         </div>
+
         <div id="overlay" ></div>
     </div>
         
