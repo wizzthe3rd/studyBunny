@@ -5,10 +5,11 @@ let selectedTime = 0;
 const countdownEL = document.getElementById('countdown');
 
 
-let menuOpen = true;
 
 document.getElementById('play-button').addEventListener('click', showTimeModal);
 document.querySelector('.hamburger-menu').addEventListener('click', toggleMenu);
+document.querySelector('.shop-icon').addEventListener('click', toggleShop)
+document.querySelector('.shop-modal-close').addEventListener('click', toggleShop)
 
 
 function startTimer(){
@@ -36,6 +37,10 @@ function updateTime(){
     time--;
 }
 
+function toggleShop(){
+    document.querySelector('.shop-modal').classList.toggle('active')
+    document.getElementById('overlay').classList.toggle('active')
+}
 
 function toggleMenu(){
     document.querySelector('.menu').classList.toggle('active')
