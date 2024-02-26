@@ -1,7 +1,24 @@
 let currency = 100;
+let totalTime = 0;
+let timeInterval;
+let isTimerRunning = false;
+
 document.getElementById('currency').innerHTML = currency;
 
-document.getElementById('play-button').addEventListener('click', showTimeModal);
+document.getElementById('play-button').addEventListener('click', function(){
+    if (isTimerRunning) {
+        // If the timer is running, just switch buttons
+        switchButtons();
+    } else if (totalTime > 0) {
+        // If the timer is not running and totalTime is set, resume the timer
+        startTimer();
+        switchButtons();
+    } else {
+        // If the timer is not running and totalTime is not set, show the time modal
+        showTimeModal();
+    }
+});
+
 document.querySelector('.hamburger-menu').addEventListener('click', toggleMenu);
 document.querySelector('.shop-icon').addEventListener('click', toggleShop);
 document.querySelector('.shop-modal-close').addEventListener('click', toggleShop);
@@ -9,32 +26,44 @@ document.querySelector('.shop-modal-close').addEventListener('click', toggleShop
 document.querySelector('.currency-modal-close').addEventListener('click', function(){
     toggleCurrencyMessage();
     document.querySelector('.currency-modal').removeChild('currencyMessage');
-})
+});
 
 document.querySelector('.time-modal-submit').addEventListener('click', function(){
-    startTimer();
-    showTimeModal();
+        startTimer();
+        showTimeModal();
+        switchButtons();
 });
+document.getElementById('stop-button').addEventListener('click', function(){
+    document.querySelector('.countdown-background').classList.toggle('active');
+    document.getElementById('countdown').innerHTML = "00:00"
+    totalTime = 0;
+    clearInterval(timeInterval);
+    switchButtons();
+});
+document.getElementById('pause-button').addEventListener('click', pauseTimer);
 
 
 function startTimer(){
-    document.querySelector('.countdown-background').classList.toggle('active')
-    let minutes = parseInt(document.getElementById('min-input').value);
-    let seconds = parseInt(document.getElementById('sec-input').value);
+    if (totalTime === 0){
+        document.querySelector('.countdown-background').classList.toggle('active')
+        let minutes = parseInt(document.getElementById('min-input').value);
+        let seconds = parseInt(document.getElementById('sec-input').value);
 
-    //input field is 0 is nothing has been entered
-    if (isNaN(minutes)) {
-        minutes = 0;
-      }
+        //input field is 0 is nothing has been entered
+        if (isNaN(minutes)) {
+            minutes = 0;
+        }
     
-      if (isNaN(seconds)) {
-        seconds = 0;
-      }
+        if (isNaN(seconds)) {
+            seconds = 0;
+        }
     
-    let totalTime = (minutes * 60) + seconds; //total time in seconds
-    // setInterval(updateTime, 1000);  //calls function every second
+        totalTime = (minutes * 60) + seconds; //total time in seconds
+    }
+
     let currencyTime = totalTime;
-     let timer = setInterval(function() {
+    timeInterval = setInterval(function() {
+        isTimerRunning = true;
         let minutes = Math.floor(totalTime / 60);   //minutes left, math.floor rounds down to the nearest whole number
         let seconds = totalTime % 60;
 
@@ -51,13 +80,16 @@ function startTimer(){
             let modalElement = document.createElement("currencyMessage");
             if (amountEarned > 0){
                 toggleCurrencyMessage();
-                modalElement.innerHTML += `<h3>Well done! You earned <span>${amountEarned}</span> carrots!</h3>`;
+                modalElement.innerHTML += `<h3><span>${amountEarned}</span> carrots found!</h3>`;
                 modalContainer.appendChild(modalElement);
             }
 
-            clearInterval(timer); //stops timer setInterval
+            clearInterval(timeInterval); //stops timer setInterval
             document.getElementById('countdown').innerHTML = "00:00"
             document.querySelector('.countdown-background').classList.toggle('active')
+            isTimerRunning = false;
+            //displays play button again
+            switchButtons();
         } else{
             //decrements time every second
             totalTime--;
@@ -92,3 +124,19 @@ function toggleCurrencyMessage(){
     document.querySelector('.currency-modal').classList.toggle('active');
     document.getElementById('overlay').classList.toggle('active');
 }
+
+function switchButtons(){
+    document.querySelector('.pause-stop-button-container').classList.toggle('active');
+    document.querySelector('.play-button-container').classList.toggle('inactive');
+}
+
+function pauseTimer(){
+    if (isTimerRunning){
+        clearInterval(timeInterval);
+        isTimerRunning = false;
+    } else {
+        startTimer(); // Resume the timer only if it's paused
+    }
+    switchButtons();
+}
+
