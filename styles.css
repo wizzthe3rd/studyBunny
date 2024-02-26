@@ -81,10 +81,20 @@ button, input{
 }
 
 .info-container{
+    text-align: start;
+    margin-left: 20px;
     display: flex;
     position: relative;
     width: 100%;
     height: 100%;
+}
+
+.info-container ul{
+    padding-bottom: 5px;
+}
+
+.info-container ul li{
+    font-size: 1.2rem;
 }
 
 nav{
