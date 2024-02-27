@@ -34,6 +34,7 @@ document.querySelector('.time-modal-submit').addEventListener('click', function(
         switchButtons();
 });
 document.getElementById('stop-button').addEventListener('click', function(){
+    isTimerRunning = false;
     document.querySelector('.countdown-background').classList.toggle('active');
     document.getElementById('countdown').innerHTML = "00:00"
     totalTime = 0;
