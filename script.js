@@ -16,11 +16,11 @@ if (userCurrency){
 
 document.getElementById('currency').innerHTML = currency;
 
-document.querySelector('.shareEl').addEventListener('click', () =>{
+document.querySelector('.shareEl').addEventListener('click', () => {
     document.querySelector('.share-icon-container').classList.toggle('active');
 });
 
-document.getElementById('play-button').addEventListener('click', function(){
+document.getElementById('play-button').addEventListener('click', () =>{
     if (isTimerRunning) {
         // If the timer is running, just switch buttons
         switchButtons();
@@ -38,17 +38,17 @@ document.querySelector('.hamburger-menu').addEventListener('click', toggleMenu);
 document.querySelector('.shop-icon').addEventListener('click', toggleShop);
 document.querySelector('.shop-modal-close').addEventListener('click', toggleShop);
 
-document.querySelector('.currency-modal-close').addEventListener('click', function(){
+document.querySelector('.currency-modal-close').addEventListener('click', () => {
     toggleCurrencyMessage();
     document.querySelector('.currency-modal').removeChild('currencyMessage');
 });
 
-document.querySelector('.time-modal-submit').addEventListener('click', function(){
+document.querySelector('.time-modal-submit').addEventListener('click', () => {
         startTimer();
         showTimeModal();
         switchButtons();
 });
-document.getElementById('stop-button').addEventListener('click', function(){
+document.getElementById('stop-button').addEventListener('click', () => {
     isTimerRunning = false;
     document.querySelector('.countdown-background').classList.toggle('active');
     document.getElementById('countdown').innerHTML = "00:00"
@@ -78,7 +78,7 @@ function startTimer(){
     }
 
     let currencyTime = totalTime;
-    timeInterval = setInterval(function() {
+    timeInterval = setInterval(() => {
         isTimerRunning = true;
         let minutes = Math.floor(totalTime / 60);   //minutes left, math.floor rounds down to the nearest whole number
         let seconds = totalTime % 60;
