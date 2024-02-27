@@ -114,7 +114,7 @@ button, input{
 
 nav{
     display: flex;
-    gap: 110px;
+    gap: 145px;
     justify-content: start;
     align-items: center;
     margin: 4px;
@@ -153,8 +153,8 @@ nav{
 }
 
 .coins {
-    padding-left: 4px;
-    padding-right: 7px;
+    padding-left: 24px;
+    padding-right: 12px;
     display: flex;
     align-items: center;
     gap: 20px;
@@ -174,8 +174,8 @@ nav{
 }
 
 #coins_logo {
-    width: 10%;
-    height: 10%;
+    position: absolute;
+    transform: translateX(-36px) translateY(-4px)
 }
 
 svg{
