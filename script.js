@@ -3,7 +3,22 @@ let totalTime = 0;
 let timeInterval;
 let isTimerRunning = false;
 
+//storing and retrieving user currency 
+let userCurrency = localStorage.getItem('carrots');
+
+if (userCurrency){
+    let userData = JSON.parse(userCurrency);
+} else {
+    localStorage.setItem(
+        'carrot', 0 
+        );
+}
+
 document.getElementById('currency').innerHTML = currency;
+
+document.querySelector('.shareEl').addEventListener('click', () =>{
+    document.querySelector('.share-icon-container').classList.toggle('active');
+});
 
 document.getElementById('play-button').addEventListener('click', function(){
     if (isTimerRunning) {
