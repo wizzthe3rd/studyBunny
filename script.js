@@ -1,3 +1,29 @@
+let quoteOfTheDay;
+const fetchData = async() =>{
+    const url = 'https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote?token=ipworld.info';
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'a79c202c29msh3d60f4f1a64ce48p1aaa25jsne46a2eeb1e4c',
+            'X-RapidAPI-Host': 'quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com'
+        }
+    };
+    
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        console.log(result);
+        quoteOfTheDay = result.text;
+        document.getElementById('quote').innerHTML = quoteOfTheDay;
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+//call function to retrieve promise
+fetchData()
+
 let currency = 100;
 let totalTime = 0;
 let timeInterval;
@@ -13,6 +39,8 @@ if (userCurrency){
         'carrot', 0 
         );
 }
+
+
 
 const startTimer = () => {
     if (totalTime === 0){
