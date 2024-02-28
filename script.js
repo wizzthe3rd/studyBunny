@@ -1,3 +1,7 @@
+let currency = 100;
+let totalTime = 0;
+let timeInterval;
+let isTimerRunning = false;
 let quoteOfTheDay;
 const fetchData = async() =>{
     const url = 'https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote?token=ipworld.info';
@@ -20,14 +24,8 @@ const fetchData = async() =>{
         console.error(error);
     }
 }
-
 //call function to retrieve promise
 fetchData()
-
-let currency = 100;
-let totalTime = 0;
-let timeInterval;
-let isTimerRunning = false;
 
 //storing and retrieving user currency 
 let userCurrency = localStorage.getItem('carrots');
