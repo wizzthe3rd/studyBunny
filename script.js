@@ -14,52 +14,7 @@ if (userCurrency){
         );
 }
 
-document.getElementById('currency').innerHTML = currency;
-
-document.querySelector('.shareEl').addEventListener('click', () => {
-    document.querySelector('.share-icon-container').classList.toggle('active');
-});
-
-document.getElementById('play-button').addEventListener('click', () =>{
-    if (isTimerRunning) {
-        // If the timer is running, just switch buttons
-        switchButtons();
-    } else if (totalTime > 0) {
-        // If the timer is not running and totalTime is set, resume the timer
-        startTimer();
-        switchButtons();
-    } else {
-        // If the timer is not running and totalTime is not set, show the time modal
-        showTimeModal();
-    }
-});
-
-document.querySelector('.hamburger-menu').addEventListener('click', toggleMenu);
-document.querySelector('.shop-icon').addEventListener('click', toggleShop);
-document.querySelector('.shop-modal-close').addEventListener('click', toggleShop);
-
-document.querySelector('.currency-modal-close').addEventListener('click', () => {
-    toggleCurrencyMessage();
-    document.querySelector('.currency-modal').removeChild('currencyMessage');
-});
-
-document.querySelector('.time-modal-submit').addEventListener('click', () => {
-        startTimer();
-        showTimeModal();
-        switchButtons();
-});
-document.getElementById('stop-button').addEventListener('click', () => {
-    isTimerRunning = false;
-    document.querySelector('.countdown-background').classList.toggle('active');
-    document.getElementById('countdown').innerHTML = "00:00"
-    totalTime = 0;
-    clearInterval(timeInterval);
-    switchButtons();
-});
-document.getElementById('pause-button').addEventListener('click', pauseTimer);
-
-
-function startTimer(){
+const startTimer = () => {
     if (totalTime === 0){
         document.querySelector('.countdown-background').classList.toggle('active')
         let minutes = parseInt(document.getElementById('min-input').value);
@@ -117,36 +72,36 @@ function startTimer(){
 }
 
 
-function showTimeModal(){
+const showTimeModal = () =>{
     document.getElementById('time-modal').classList.toggle('active');
     document.getElementById('overlay').classList.toggle('active');
 }
 
-function toggleShop(){
+const toggleShop = () =>{
     document.querySelector('.shop-modal').classList.toggle('active');
     document.getElementById('overlay').classList.toggle('active');
 }
 
-function toggleMenu(){
+const toggleMenu = () =>{
     document.querySelector('.menu').classList.toggle('active');
     document.getElementById('overlay').classList.toggle('active');
 }
-function toggleModal(){
+const toggleModal = () =>{
     document.getElementById('time-modal').classList.toggle('active');
     document.getElementById('overlay').classList.toggle('active');
 }
 
-function toggleCurrencyMessage(){
+const toggleCurrencyMessage = () =>{
     document.querySelector('.currency-modal').classList.toggle('active');
     document.getElementById('overlay').classList.toggle('active');
 }
 
-function switchButtons(){
+const switchButtons = () =>{
     document.querySelector('.pause-stop-button-container').classList.toggle('active');
     document.querySelector('.play-button-container').classList.toggle('inactive');
 }
 
-function pauseTimer(){
+const pauseTimer = () =>{
     if (isTimerRunning){
         clearInterval(timeInterval);
         isTimerRunning = false;
@@ -155,4 +110,49 @@ function pauseTimer(){
     }
     switchButtons();
 }
+
+
+document.getElementById('currency').innerHTML = currency;
+
+document.querySelector('.shareEl').addEventListener('click', () => {
+    document.querySelector('.share-icon-container').classList.toggle('active');
+});
+
+document.getElementById('play-button').addEventListener('click', () =>{
+    if (isTimerRunning) {
+        // If the timer is running, just switch buttons
+        switchButtons();
+    } else if (totalTime > 0) {
+        // If the timer is not running and totalTime is set, resume the timer
+        startTimer();
+        switchButtons();
+    } else {
+        // If the timer is not running and totalTime is not set, show the time modal
+        showTimeModal();
+    }
+});
+
+document.querySelector('.hamburger-menu').addEventListener('click', toggleMenu);
+document.querySelector('.shop-icon').addEventListener('click', toggleShop);
+document.querySelector('.shop-modal-close').addEventListener('click', toggleShop);
+
+document.querySelector('.currency-modal-close').addEventListener('click', () => {
+    toggleCurrencyMessage();
+    document.querySelector('.currency-modal').removeChild('currencyMessage');
+});
+
+document.querySelector('.time-modal-submit').addEventListener('click', () => {
+        startTimer();
+        showTimeModal();
+        switchButtons();
+});
+document.getElementById('stop-button').addEventListener('click', () => {
+    isTimerRunning = false;
+    document.querySelector('.countdown-background').classList.toggle('active');
+    document.getElementById('countdown').innerHTML = "00:00"
+    totalTime = 0;
+    clearInterval(timeInterval);
+    switchButtons();
+});
+document.getElementById('pause-button').addEventListener('click', pauseTimer);
 
