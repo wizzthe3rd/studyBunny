@@ -39,7 +39,7 @@ button, input{
 
 .container{
     position: relative;
-    border: 1px solid black;
+    border: 1px dashed grey;
     max-width: 320px;
     display: flex;
     justify-content: center;
@@ -463,6 +463,27 @@ svg{
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+}
+
+#quote{
+    color: #147ed5;
+    font-weight: 700;
+    background-color: transparent;
+    font-size: 0.8em;
+    margin-top: 20px;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 #overlay{
