@@ -125,7 +125,7 @@ const setUpEventListeners = () => {
                     currencyEl.innerHTML = currency;
         
                     //store study info in array, gather day of the week
-                    updateHistoryArray(getStudyInfo(parseFloat(historyTime/60)));
+                    updateHistoryArray(getStudyInfo(historyTime/60));
         
                     if (amountEarned > 0){
                         currencyAnimation(modalContainer, modalElement, amountEarned);
