@@ -26,7 +26,15 @@ const setUpGraph = () => {
         ],
         datasets: [{
         label: 'Hours Studied',
-        data: [12, 19, 3, 5, 2, 3, 4],
+        data: [
+            localStorage.getItem('Monday'),
+            localStorage.getItem('Tuesday'),
+            localStorage.getItem('Wednesday'),
+            localStorage.getItem('Thursday'),
+            localStorage.getItem('Friday'),
+            localStorage.getItem('Saturday'),
+            localStorage.getItem('Sunday')
+        ],
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)', 
             'rgba(54, 162, 235, 0.2)', 
