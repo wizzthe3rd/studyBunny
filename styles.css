@@ -1,14 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Just+Another+Hand&display=swap');
 
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    overflow: hidden;
 }
 
 body{
+    background-color: #99BC85;
     user-select: none;
-    font-family: 'Kurale', sans-serif;
+    font-family: 'Gamja Flower', cursive;   
 }
 
 nav, .container, .add-content{
@@ -16,16 +17,14 @@ nav, .container, .add-content{
 }
 
 .container, nav, .timer-indicator, .footer{
-    background-color: #F7F7F7;
+    background-color: #99BC85;
 }
 
 button, input{
     cursor: pointer;
 }
 
-.close{
-    color: white;
-}
+
 
 .selector {
     transition: transform 0.4s ease;
@@ -51,6 +50,8 @@ button, input{
 }
 
 .menu{
+    border: 2px solid black;
+    font-family: 'Gamja flower', cursive;
     z-index: 200;
     position: absolute;
     top: 0;
@@ -58,7 +59,7 @@ button, input{
     width: 230px;
     height: 100%;
     border-radius: 0px 20px 20px 0px;
-    background-color: #F7F7F7;
+    background-color: #D4E7C5;
     transition: left 0.3s ease;
 }
 
@@ -81,6 +82,7 @@ button, input{
 }
 
 .info-container{
+    top: -25px;
     text-align: start;
     margin-left: 20px;
     display: flex;
@@ -91,17 +93,28 @@ button, input{
 
 .info-container ul{
     padding-bottom: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .info-container ul li{
     cursor: pointer;
-    font-size: 1.2rem;
+    color: #333;
+    font-size: 1.5em;
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
 }
 
 .share-icon-container{
+    overflow: hidden;
     transition: max-height 0.4s ease-in-out;
     max-height: 0;    
-    margin-top: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -109,19 +122,18 @@ button, input{
 
 .share-icon-container.active{
     max-height: 100px;
-    
 }
 
 nav{
     display: flex;
-    gap: 145px;
+    gap: 130px;
     justify-content: start;
     align-items: center;
     margin: 4px;
     padding-left: 10px;
     width: 100%;
     min-height: 20%;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     margin-top: 8px;
 }
 
@@ -158,14 +170,16 @@ nav{
     display: flex;
     align-items: center;
     gap: 20px;
-    border: 1px solid #989BE1;
+    border: 3px solid #99BC85;
     border-radius: 25px;
-    background-color: #98C0E1;
+    background-color: #85B4BC;
     width: fit-content;
+    animation: float 0.6s ease-in-out 1;
 }
 
 
 .coins p {
+    font-size: 1.6em;
     text-shadow: 1.5px 1.5px rgba(63, 10, 10, 0.2);
     color: #F7F7F7;
     font-weight: 700px;
@@ -175,7 +189,7 @@ nav{
 
 #coins_logo {
     position: absolute;
-    transform: translateX(-36px) translateY(-4px)
+    transform: translateX(-39px) translateY(0px)
 }
 
 svg{
@@ -187,39 +201,27 @@ svg{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    border: 1px solid ghostwhite;
     width: 100%;
-    height: 200px;
+    height: 100px;
 }
 
-#countdown{
+.countdown{
+    color: #333;
     cursor: pointer;
-    font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+    font-family: 'Gamja Flower', cursive;
     font-weight: 500px;
     text-shadow: 1px 2px rgba(0, 0, 0, 0.2);
     background-color: transparent;
-    font-size: 40px;
+    font-size: 4.2em;
 }
 #countdown.active{
     color: #5eb0f3;
 }
 
-.countdown-background{
-    transition: 1.9s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid #9BE198;
-    box-shadow: 0px 0px 2px #9BE198;
-    border-radius: 500%;
-    width: 170px;
-    height: 170px;
-    z-index: 2;
-}
 
-.countdown-background.active{
-    border: 3px solid #5eb0f3;
-    box-shadow: 1px 1px 23px #5eb0f3;
+.countdown-background.p{
+    border: 3px solid #85BC8C;
+    box-shadow: 1px 1px 19px #85BC8C;
 }
 .countdown-background.pause{
     border: 3px solid #e2f35e;
@@ -230,23 +232,11 @@ svg{
     box-shadow: 1px 1px 23px #ee1f1f;
 }
 
-.countdown-background::before{
-    z-index: 1;
-    content: '';
-    position: absolute;
-    background-color: transparent;
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    border: 2px solid #ffffff;
-    box-shadow: 0px 0px 10px #d6d5d5 inset;
-}
-
 .pause-stop-button-container{
     transition: transform 0.4s ease-in-out;
     position: absolute;
     justify-content: center;
-    bottom: 39.4%;
+    bottom: 53.4%;
     transform: scale(0);
     display: flex;
     gap: 70px;
@@ -256,19 +246,65 @@ svg{
     transform: scale(1);
 }
 
+.play-button-container.inactive{
+    transform: scale(0);
+}
+
 .play-button-container{
     z-index: 10;
     transition: 0.2s ease-in-out;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
     height: 50px;
-    margin-top: 10px;
+    margin-top: 0px;
     width: fit-content;
 }
 
-.play-button-container.inactive{
-    transform: scale(0);
+
+.slider-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.startTimeEL{
+    background-color: #85B4BC;
+    color: #F7F7F7;
+    padding: 5px;
+    border-radius: 8px;
+    font-family: 'Gamja Flower', cursive;
+    font-size: 1.3em;
+    border: 3px solid black;
+    font-weight: 500;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+
+}
+
+#rangeEL{
+    margin-bottom: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 80%;
+    height: 20px;
+    background: linear-gradient(90deg,#BC8C85 0%, #BC8C85 100%);
+    border-radius: 8px;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border: 3px solid black;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+#rangeEL::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    background: #85B4BC;
+    border-radius: 50%;
+    border: 3px solid black;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
 }
 
 .footer{
@@ -277,23 +313,23 @@ svg{
 }
 
 #time-modal{
-    color: #5eb0f3;
+    color: black;
     transform: scale(0);
     transition: 200ms ease-in-out;
     bottom: 60%;
     border-radius: 12px;
     position: fixed;
-    background-color: #F7F7F7; 
-    border: 2px solid #989BE1;
+    background-color: #99BC85; 
+    border: 3px solid #333;
     z-index: 200;
-    width: 200px;
-    height: 100px;
+    width: 60%;
+    height: 200px;
     box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
 
 }
 
 .close-button {
-    color: #5eb0f3;
+    color: black;
 }
 
 #time-modal.active{
@@ -301,8 +337,9 @@ svg{
 }
  
 #time-modal-header{
+    gap: 60px;
     padding: 4px;
-    margin-bottom: 10px;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -310,9 +347,17 @@ svg{
 }
 
 #time-modal-header p{
+    font-family: 'Gamja Flower', cursive ;
+    font-size: 1.4em;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
     background-color: transparent;
     padding-right: 70px;
+}
+
+.time-modal-text{
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 30px;
 }
 
 .close-button{
@@ -327,45 +372,51 @@ svg{
 }
 
 .time-modal-submit{
-    color: white;
+    font-family: 'Gamja Flower', cursive ;
+    font-size: 1.4em;
+    color: #333;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
     box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
-    background-color: #9BE198;
-    margin-left: 20px;
-    width: 50px;
-    height: 30px;
-    border: 1px solid ghostwhite;
+    background-color: #E1F0DA;
+    width: 80px;
+    height: 40px;
+    border: 3px solid #333;
     border-radius: 8px;
 }
 
-#time-modal input{
-
-    text-align: center;
-    background-color: #dddbdb;
-    box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
-    border: 1px solid white;
-    border-radius: 8px;
-    width: 50px;
-    height: 30px;
+.time-modal-content{
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .currency-modal.active{
     transform: scale(1);
 }
 
+#coin-logo{
+    background-image: url('/images/coin-front-svgrepo-com.png');
+    background-size: 20px;
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+}
+
 .currency-modal{
     transform: scale(0);
-    border: 1px solid black;
+    border: 3px solid black;
     width: 100%;
     transition: 200ms ease-in-out;
-    bottom: 47%;
+    bottom: 67%;
     border-radius: 12px;
     position: fixed;
-    background-color: #F7F7F7; 
-    border: 2px solid #989BE1;
+    background-color: #99BC85; 
     z-index: 200;
-    width: fit-content;
-    height: 80px;
+    width: 150px;
+    height: fit-content;
     box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -375,7 +426,7 @@ svg{
 }
 
 .currency-modal-nav button{
-    color: #5eb0f3;
+    color: #333;
     margin-right: 10px;
     border: none;
     font-size: 1.8rem;
@@ -383,14 +434,14 @@ svg{
 }
 
 .currency-modal h3{
-    color: #5eb0f3;
+    color: #333;
     padding-top: 5px;
     padding: 2px 10px 10px
 }
 
 .currency-modal span{
     font-weight: bolder;
-    color: #9BE198;
+    color: #d85f33;
 }
 
 #sidebar {
@@ -419,8 +470,8 @@ svg{
     bottom: 47%;
     border-radius: 12px;
     position: fixed;
-    background-color: #F7F7F7; 
-    border: 2px solid #989BE1;
+    background-color: #E1F0DA; 
+    border: 3px solid black;
     z-index: 200;
     width: 240px;
     height: 260px;
@@ -441,11 +492,13 @@ svg{
 }
 
 .shop-modal h3{
-    color: #5eb0f3;
+    font-family: 'Gamja Flower', cursive;
+    font-size: 1.5rem;
+    color: black;
 }
 
 .shop-modal-close{
-    color: #5eb0f3;
+    color: black;
 
     border: none;
     font-size: 1.8em;
@@ -456,9 +509,7 @@ svg{
 .shop-items{
     transform: translateY(-7%); 
     border-radius: 8px;
-    background-color: #98C0E1;
-    border: 2px solid #989BE1;
-    box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+    background-color: #E1F0DA;
     height: 180px;
     width: 80%;
     margin-left: auto;
@@ -466,11 +517,12 @@ svg{
 }
 
 #quote{
-    color: #147ed5;
+    font-family: "Just Another Hand", cursive;
+    color: #BC8C85;
     font-weight: 700;
     background-color: transparent;
-    font-size: 0.8em;
-    margin-top: 20px;
+    font-size: 1.4em;
+    margin-top: 40px;
     animation: float 6s ease-in-out infinite;
 }
 
@@ -479,11 +531,47 @@ svg{
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-15px);
+        transform: translateY(-5px);
+    }
+    75% {
+        transform: translateY(-3px);
     }
     100% {
         transform: translateY(0px);
+
     }
+}
+.history-nav{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#study-history-title{
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.history-back-button{
+    flex: 0 0 auto;
+}
+
+.chart-container{
+    margin-top: 30px;
+    border: 3px solid black;
+    border-radius: 10px ;
+    padding: 5px;
+    background-color: #BFD8AF;
+}
+
+#study-history-chart{
+    background-color: transparent;
+}
+
+.history-footer{
+    height: 100px;
 }
 
 #overlay{
