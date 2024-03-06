@@ -69,7 +69,8 @@ const setUpGraph = () => {
                 color: 'black',
             },
             }
-        }
+        },
+
     }
     });
 

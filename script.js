@@ -103,6 +103,7 @@ const setUpEventListeners = () => {
             }
         
             let currencyTime = totalTime;
+            let historyTime = Math.floor(totalTime / 60);   //saves the inutes to be stored in history localStorage
             timeInterval = setInterval(() => {
                 isTimerRunning = true;
                 let minutes = Math.floor(totalTime / 60);   //minutes left, math.floor rounds down to the nearest whole number
@@ -124,7 +125,7 @@ const setUpEventListeners = () => {
                     currencyEl.innerHTML = currency;
         
                     //store study info in array, gather day of the week
-                    updateHistoryArray(getStudyInfo(currencyTime));
+                    updateHistoryArray(getStudyInfo(parseFloat(historyTime/60)));
         
                     if (amountEarned > 0){
                         currencyAnimation(modalContainer, modalElement, amountEarned);
