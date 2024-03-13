@@ -45,7 +45,6 @@ button, input{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin: 30px auto;
 
 }
 
@@ -551,11 +550,19 @@ svg{
     justify-content: center;
 }
 
-.room-section img{
+.room-section #roomEL{
     border: 5px solid black;
     border-radius: 11px;
     width: 90%;
 }
+#catEL{
+    display: absolute;
+    width: 93px;
+    height: 122px;
+    z-index: 1;
+    transform: translate(0px, -220px);
+}
+
 
 @keyframes float {
     0% {
