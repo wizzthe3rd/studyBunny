@@ -234,8 +234,8 @@ svg{
     transition: transform 0.4s ease-in-out;
     position: absolute;
     justify-content: center;
-    bottom: 63%;
-    transform: scale(0);
+    bottom: 70%;
+    transform: scale(1);
     display: flex;
     gap: 70px;
 }
@@ -374,7 +374,7 @@ svg{
     color: #333;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
     box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
-    background-color: #E1F0DA;
+    background-color: #fde4f2;
     width: 80px;
     height: 40px;
     border: 3px solid #333;
