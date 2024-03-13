@@ -80,8 +80,7 @@ const setUpEventListeners = () => {
         }
         }
 
-    let studyHistory = {}
-
+    //check if study time is stored in local storage
     for (let day in studyHistoryInfo){
         //retrieves study minutes for each day of the week from local storage
         let existingStudyTime = localStorage.getItem(studyHistoryInfo[day]["date"]);
@@ -150,7 +149,7 @@ const setUpEventListeners = () => {
         timePopUp.classList.toggle('active');
         overlay.classList.toggle('active');
     }
-    
+
     const toggleShop = () =>{
         document.querySelector('.shop-modal').classList.toggle('active');
         overlay.classList.toggle('active');
