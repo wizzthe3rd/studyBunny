@@ -235,7 +235,7 @@ svg{
     position: absolute;
     justify-content: center;
     bottom: 70%;
-    transform: scale(1);
+    transform: scale(0);
     display: flex;
     gap: 70px;
 }
