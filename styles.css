@@ -478,9 +478,11 @@ svg{
     gap: 20px;
     box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
 }
+
 .shop-modal.active{
     transform: scale(1);
 }
+
 .shop-modal-nav{
     display: flex;
     flex-direction: row;
@@ -514,6 +516,30 @@ svg{
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.tdl-modal{
+    z-index: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    transform: scale(0);
+    transition: 200ms ease-in-out;
+    bottom: 47%;
+    border-radius: 12px;
+    position: fixed;
+    background-color: #E1F0DA; 
+    border: 3px solid black;
+    z-index: 200;
+    width: 240px;
+    height: 260px;
+    gap: 20px;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tdl-modal.active{
+    transform: scale(1);
 }
 
 #quote{
