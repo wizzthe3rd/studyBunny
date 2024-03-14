@@ -253,7 +253,6 @@ const setUpEventListeners = () => {
         toggleCurrencyMessage();
         currencyMessage.removeChild('currencyMessage');
     });
-
 }
 
 

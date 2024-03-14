@@ -475,9 +475,11 @@ svg{
     height: 280px;
     box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
 }
+
 .shop-modal.active{
     transform: scale(1);
 }
+
 .shop-modal-nav{
     display: flex;
     flex-direction: row;
@@ -639,4 +641,26 @@ svg{
 
 #overlay.active{
     display: block;
+}
+
+.tdl-nav{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tdl-back-button{
+    flex: 0 0 auto;
+}
+
+.tdl-footer{
+    height: 100px;
+}
+
+#tdl-title{
+    flex: 1 1 auto;
+    text-align: center;
 }

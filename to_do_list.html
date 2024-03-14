@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study History</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>To Do List</title>
 </head>
 <body>
-    <div class="history-container container">
-        <div class="history-nav">
-            <svg class="study-back-button selector" fill="#D4E7C5" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
+    <div class="tdl-container container">
+        <div class="tdl-nav">
+            <svg class="tdl-back-button selector" fill="#D4E7C5" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
 
                 <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                 
@@ -19,15 +19,14 @@
                 
                 </svg>
 
-            <h1 id="study-history-title">Study History</h1>
+            <h1 id="tdl-title">To Do List!</h1>
         </div>
-        
-        <div class="history-footer">
+        <div class="chart-container">
+            <canvas id="study-history-chart" width="270" height="240"></canvas>
+        </div>
+        <div class="tdl-footer">
 
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="history_script.js" type="module"></script>
-     </body>
+</body>
 </html>
