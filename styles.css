@@ -7,7 +7,7 @@
 }
 
 body{
-    background-color: #99BC85;
+    background-color: #D4E7C5;
     user-select: none;
     font-family: 'Gamja Flower', cursive;   
 }
@@ -17,7 +17,7 @@ nav, .container, .add-content{
 }
 
 .container, nav, .timer-indicator, .footer{
-    background-color: #99BC85;
+    background-color: #D4E7C5;
 }
 
 button, input{
@@ -51,6 +51,7 @@ button, input{
 .menu{
     border: 2px solid black;
     font-family: 'Gamja flower', cursive;
+    font-size: 1.4em;
     z-index: 200;
     position: absolute;
     top: 0;
@@ -170,7 +171,7 @@ nav{
     gap: 20px;
     border: 3px solid #333;
     border-radius: 25px;
-    background-color: #85B4BC;
+    background-color: #fde4f2;
     width: fit-content;
     animation: float 0.6s ease-in-out 1;
 }
@@ -179,7 +180,7 @@ nav{
 .coins p {
     font-size: 1.6em;
     text-shadow: 1.5px 1.5px rgba(63, 10, 10, 0.2);
-    color: #F7F7F7;
+    color: black;
     font-weight: 700px;
     background-color: transparent;
     border-radius: 2px;
@@ -352,6 +353,7 @@ svg{
 }
 
 .time-modal-text{
+    color: #E1F0DA;
     font-size: 1.5em;
     font-weight: 700;
     margin-bottom: 30px;
@@ -458,10 +460,9 @@ svg{
 .shop-modal{
     z-index: 200px;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     flex-direction: column;
     border: 1px solid black;
-    width: 100%;
     transform: scale(0);
     transition: 200ms ease-in-out;
     bottom: 49%;
@@ -472,7 +473,6 @@ svg{
     z-index: 200;
     width: 300px;
     height: 280px;
-    gap: 10px;
     box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
 }
 .shop-modal.active{
@@ -502,6 +502,7 @@ svg{
 }
 
 .shop-items{
+    margin-top: 10px;
     transform: translateY(-7%); 
     border-radius: 8px;
     background-color: #E1F0DA;
@@ -510,20 +511,31 @@ svg{
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: start;
+    text-align: start;
 }
 
+#seperator{
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
+.accessories, .tops{
+    display: flex;
+}
 
 .card{
+    height: 50px;
+    width: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 6px;
-    border: 3px solid black;
     border-radius: 8px;
-    box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px rgba(244,184,218, 0.7);
 }
 
 .card p{
@@ -556,6 +568,7 @@ svg{
     width: 90%;
 }
 #catEL{
+    cursor: pointer;
     display: absolute;
     width: 93px;
     height: 122px;
