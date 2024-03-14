@@ -8,7 +8,6 @@ const setUpEventListeners = () => {
     ];    
     const quoteDisplay = document.querySelector('#quote');
     const timePopUp = document.querySelector('#time-modal');
-    const tdlPopUp = document.querySelector('.tdl-modal');
     const overlay = document.querySelector('#overlay');
     const currencyMessage = document.querySelector('.currency-modal');
     const hamburgerMenu = document.querySelector('.hamburger-menu');
@@ -151,11 +150,6 @@ const setUpEventListeners = () => {
         timePopUp.classList.toggle('active');
         overlay.classList.toggle('active');
     }
-
-    const showTdlModal = () =>{
-        tdlPopUp.classList.toggle('active');
-        overlay.classList.toggle('active');
-    }
     
     const toggleShop = () =>{
         document.querySelector('.shop-modal').classList.toggle('active');
@@ -260,8 +254,6 @@ const setUpEventListeners = () => {
         toggleCurrencyMessage();
         currencyMessage.removeChild('currencyMessage');
     });
-    tdlPopUp.addEventListener('click', showTdlModal);
-
 }
 
 

@@ -518,30 +518,6 @@ svg{
     margin-right: auto;
 }
 
-.tdl-modal{
-    z-index: 200px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    transform: scale(0);
-    transition: 200ms ease-in-out;
-    bottom: 47%;
-    border-radius: 12px;
-    position: fixed;
-    background-color: #E1F0DA; 
-    border: 3px solid black;
-    z-index: 200;
-    width: 240px;
-    height: 260px;
-    gap: 20px;
-    box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
-}
-
-.tdl-modal.active{
-    transform: scale(1);
-}
-
 #quote{
     font-family: "Just Another Hand", cursive;
     color: #BC8C85;
@@ -614,4 +590,26 @@ svg{
 
 #overlay.active{
     display: block;
+}
+
+.tdl-nav{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tdl-back-button{
+    flex: 0 0 auto;
+}
+
+.tdl-footer{
+    height: 100px;
+}
+
+#tdl-title{
+    flex: 1 1 auto;
+    text-align: center;
 }
