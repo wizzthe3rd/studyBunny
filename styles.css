@@ -565,8 +565,8 @@ svg{
 }
 
 .room-section #roomEL{
-    border: 5px solid black;
-    border-radius: 11px;
+    border: 5px solid #BC8C85;
+    border-radius: 101px;
     width: 90%;
 }
 #catEL{

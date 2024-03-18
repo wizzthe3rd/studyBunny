@@ -1,3 +1,54 @@
+
+const shopItems = {
+    sunglasses: {   
+        name: document.querySelector('#sunglasses'),
+        price: 500
+    },
+    chain: {
+        name: document.querySelector('#chain'),
+        price: 300
+    },
+    blueTop: {
+        name: document.querySelector('#blueTop'),
+        price: 300
+    },
+    pinkTop: {
+        name: document.querySelector('#blueTop'),
+        price: 300
+    },
+    purpleTop: {
+        name: document.querySelector('#purpleTop'),
+        price: 300
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const shopItems = document.querySelectorAll('.card');
+    //loop through each item in the shop
+    shopItems.forEach(item => {
+    const itemId = item.id;
+    const itemPriceId = `${itemId}-card-price`; 
+    //add event listener to each item
+    item.addEventListener('click', () => {
+        buyItem(itemId); // Pass the unique identifier of the item
+        updateItemP(itemPriceId); // Pass the id of the price element
+    });
+});
+
+    // for (const itemName in shopItems) {
+    //     const item = shopItems[itemName];
+    //     const itemElement = item.name;
+    //     const itemPriceId = `${itemName}-card-price`;
+
+    //     if (itemElement) {
+    //         itemElement.addEventListener('click', () => {
+    //             buyItem(itemName);
+    //             updateItemP(itemPriceId);
+    //         });
+    //     }
+    // }
+});
+
 window.onload = () => {
     setUpEventListeners();
 }
@@ -26,6 +77,7 @@ const setUpEventListeners = () => {
     const timeModalSubmit = document.querySelector('.time-modal-submit');
     const timeModalClose = document.querySelector('.time-modal-close');
     const currencyModalClose = document.querySelector('.currency-modal-close');
+    const shopItems = document.querySelectorAll('.shop-item');
 
     if (slider){
         slider.oninput = () =>{
@@ -38,6 +90,7 @@ const setUpEventListeners = () => {
             });
         }
     }
+
     //retrieve currency from local storage
     let existingCurrency = localStorage.getItem('coins');
     //if currency is null, set it to 0
@@ -213,8 +266,20 @@ const setUpEventListeners = () => {
     
     }
 
+    initializeShop();
+
 
     //event listeners
+    // shopItems.forEach(item => {
+    //     const itemId = item.id; // Assuming item id is already unique
+    //     const itemPriceId = `${itemId}-price`; // Constructing the id of the price element
+        
+    //     item.addEventListener('click', () => {
+    //         buyItem(item);
+    //         updateItemP(document.querySelector('#itemPriceId')); // Pass the id of the price element
+    //     });
+    // });
+
     hamburgerMenu.addEventListener('click', toggleMenu);
     menuClose.addEventListener('click', toggleMenu);
     shopIcon.addEventListener('click', toggleShop);
@@ -253,6 +318,70 @@ const setUpEventListeners = () => {
         toggleCurrencyMessage();
         currencyMessage.removeChild('currencyMessage');
     });
+}
+
+
+const initializeShop = () =>{
+    //store items in local storage
+    let boughtItems = {
+        sunglasses: localStorage.getItem('sunglasses'),
+        chain: localStorage.getItem('chain'),
+        blueTop: localStorage.getItem('blueTop'),
+        pinkTop: localStorage.getItem('pinkTop'),
+        purpleTop: localStorage.getItem('purpleTop'),
+    };
+ 
+    //check if items have been bought
+    for (let i in boughtItems){
+        if (localStorage.getItem(i) === null){
+                localStorage.setItem(i, false);
+            }
+        else if (localStorage.getItem(i) === 'true'){
+            let itemPriceId = `${i}-card-price`;
+            updateItemP(itemPriceId);
+        }
+    }
+
+    console.log(boughtItems);
+}
+const buyItem = (itemId) => {
+    const item = shopItems[itemId]; // Access the item object using its identifier
+    if (item) {
+        const currentCurrency = parseInt(localStorage.getItem('coins'));
+        const itemPrice = item.price; // Access the price property of the item object
+        if (localStorage.getItem(itemId) === 'false') { // Ensure the item is not already bought
+            if (itemPrice < currentCurrency) {
+                localStorage.setItem('coins', currentCurrency - itemPrice);
+                localStorage.setItem(itemId, 'true');
+                document.querySelector('#currency').innerHTML = localStorage.getItem('coins');
+
+            } else {
+                console.log('Insufficient coins!');
+            }
+        } else {
+            console.log('Item already bought!');
+        }
+    } else {
+        console.log('Item not found!');
+    }
+}
+// const updateItemP = (itemPrice) =>{
+//     // const item = document.getElementById(itemId, itemPrice);
+
+
+//     document.querySelector(`#${itemPrice}`).innerHTML = 'Bought!';
+//     document.querySelector(`#${itemPrice}`).style.color = 'green';
+// }
+
+const updateItemP = (itemPriceId) => {
+    // gets the price element by its id and updates it
+    const itemPriceElement = document.getElementById(itemPriceId);
+    if (itemPriceElement) {
+        itemPriceElement.innerHTML = 'Bought!';
+        itemPriceElement.style.color = 'green';
+    } else {
+        console.log('Element not found:', itemPriceId);
+    }
 }
 
 
