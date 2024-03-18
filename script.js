@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // }
 });
 
+
 window.onload = () => {
     setUpEventListeners();
 }
@@ -78,6 +79,8 @@ const setUpEventListeners = () => {
     const timeModalClose = document.querySelector('.time-modal-close');
     const currencyModalClose = document.querySelector('.currency-modal-close');
     const shopItems = document.querySelectorAll('.shop-item');
+
+    const catSprite = document.getElementById('cat-sprite');
 
     if (slider){
         slider.oninput = () =>{
@@ -266,20 +269,21 @@ const setUpEventListeners = () => {
     
     }
 
+    const handleCatClick = () => {
+        if (catSprite.classList.contains('basic-costume')) {
+            catSprite.style.animation = 'basicCatWave 1s infinite'; 
+        } else if (catSprite.classList.contains('basicGlasses-costume')) {
+            catSprite.style.animation = 'waveAnimationCostume2 1s infinite'; // Apply costume 2 animation
+        }
+        setTimeout(() => {
+            catSprite.style.animation = ''; // Reset the animation after 1 second
+        }, 1000);
+    }
+
     initializeShop();
 
 
     //event listeners
-    // shopItems.forEach(item => {
-    //     const itemId = item.id; // Assuming item id is already unique
-    //     const itemPriceId = `${itemId}-price`; // Constructing the id of the price element
-        
-    //     item.addEventListener('click', () => {
-    //         buyItem(item);
-    //         updateItemP(document.querySelector('#itemPriceId')); // Pass the id of the price element
-    //     });
-    // });
-
     hamburgerMenu.addEventListener('click', toggleMenu);
     menuClose.addEventListener('click', toggleMenu);
     shopIcon.addEventListener('click', toggleShop);
@@ -318,8 +322,9 @@ const setUpEventListeners = () => {
         toggleCurrencyMessage();
         currencyMessage.removeChild('currencyMessage');
     });
+    // Add click event listener to the cat sprite
+    catSprite.addEventListener('click', handleCatClick);
 }
-
 
 const initializeShop = () =>{
     //store items in local storage

@@ -569,15 +569,59 @@ svg{
     border-radius: 101px;
     width: 90%;
 }
-#catEL{
+
+#cat-sprite{
+    background-image: url('/images/cat_costumes/basicCAT/basic.png');
+    background-size: cover;
     cursor: pointer;
     display: absolute;
     width: 93px;
-    height: 122px;
+    height: 128px;
     z-index: 1;
     transform: translate(0px, -220px);
 }
 
+/* #catSprite{
+    background-image: url('/images/cat_costumes/basicCAT/basicWave1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: absolute;
+    width: 200px;
+    height: 158px;
+    z-index: 1;
+    transform: translate(60px, -240px);
+} */
+
+@keyframes basicCatWave {
+    0% {
+        background-image: url(/images/cat_costumes/basicCAT/basicWave1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    50% {
+        background-image: url(/images/cat_costumes/basicCAT/basicWave2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    100% {
+        background-image: url(/images/cat_costumes/basicCAT/basicWave1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+}
 
 @keyframes float {
     0% {
