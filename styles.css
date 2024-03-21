@@ -738,3 +738,55 @@ svg{
     flex: 1 1 auto;
     text-align: center;
 }
+
+.tdl-container{
+    margin: 20px 10px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #9dac94;
+    border-radius: 30px;
+    margin-bottom: 25px;
+}
+
+#tdl-input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
+    cursor: auto;
+}
+
+#tdl-button{
+    border: 2px solid black;
+    outline: none;
+    padding: 16px 30px;
+    background: #a2d283;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.list-container{
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 1px 1px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.list-container::before{
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+
+}
