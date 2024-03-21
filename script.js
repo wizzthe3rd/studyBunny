@@ -1,3 +1,25 @@
+let equippedCostume = 'basic-costume';
+let equippedAccessory = null;
+const equipCostume = (costume) => {
+
+}
+const equipAccessory = (accessory) => {
+
+}
+const updateSprite = () => {
+    const catSprite = document.getElementById('cat-sprite');
+    catSprite.classList.remove('basic-costume', 'basicGlasses-costume', 'basicChain-costume');
+
+    if (equippedCostume === 'basic-costume') {
+        catSprite.classList.add('basic-costume');
+    } else if (equippedCostume === 'basicGlasses-costume') {
+        catSprite.classList.add('basicGlasses-costume');
+    } else if (equippedCostume === 'basicChain-costume') {
+        catSprite.classList.add('basicHat-costume');
+    } else if (equippedCostume === 'basicHat-costume') {
+
+    }
+}
 
 const shopItems = {
     sunglasses: {   

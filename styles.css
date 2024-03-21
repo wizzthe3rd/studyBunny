@@ -571,7 +571,7 @@ svg{
 }
 
 #cat-sprite{
-    background-image: url('/images/cat_costumes/basicCAT/basic.png');
+    background-image: url('/images/basicCAT/basic.png');
     background-size: cover;
     cursor: pointer;
     display: absolute;
@@ -595,7 +595,7 @@ svg{
 
 @keyframes basicCatWave {
     0% {
-        background-image: url(/images/cat_costumes/basicCAT/basicWave1.png);
+        background-image: url(/images/basicCAT/basicWave1.png);
         background-size: contain;
         background-repeat: no-repeat;
         width: 200px;
@@ -604,7 +604,7 @@ svg{
 
     }
     50% {
-        background-image: url(/images/cat_costumes/basicCAT/basicWave2.png);
+        background-image: url(/images/basicCAT/basicWave2.png);
         background-size: contain;
         background-repeat: no-repeat;
         width: 200px;
@@ -613,7 +613,7 @@ svg{
 
     }
     100% {
-        background-image: url(/images/cat_costumes/basicCAT/basicWave1.png);
+        background-image: url(/images/basicCAT/basicWave1.png);
         background-size: contain;
         background-repeat: no-repeat;
         width: 200px;
@@ -622,6 +622,37 @@ svg{
 
     }
 }
+
+@keyframes basicGlassesWave {
+    0% {
+        background-image: url(/images/Basicglasses/G_C1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    50% {
+        background-image: url(/images/Basicglasses/G_C2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    100% {
+        background-image: url(/images/Basicglasses/G_C1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+}
+
 
 @keyframes float {
     0% {
@@ -635,7 +666,6 @@ svg{
     }
     100% {
         transform: translateY(0px);
-
     }
 }
 .history-nav{
