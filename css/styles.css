@@ -590,23 +590,8 @@ svg{
     display: absolute;
     width: 95px;
     height: 138px;
-    z-index: 150;
+    z-index: 0;
     transform: translate(0px, -210px);
-}
-
-.sprite-popup{
-    z-index: 110;
-    position: fixed;
-    left: 120px;
-    border: 7px solid black;
-    box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
-    bottom: 170px;
-    width: 150px;
-    height: 150px;
-    background-color: #BC8C85;
-    transition: transform 0.5s ease-in-out;
-    transform: scale(0);
 }
 
 .sprite-popup.active{
