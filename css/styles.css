@@ -733,7 +733,7 @@ svg{
     cursor: auto;
 }
 
-#tdl-button{
+.tdl-button{
     border: 2px solid black;
     outline: none;
     padding: 16px 30px;
@@ -744,7 +744,7 @@ svg{
     border-radius: 30px;
 }
 
-.list-container{
+#li-contain ul li{
     list-style: none;
     font-size: 17px;
     padding: 12px 8px 1px 1px;
@@ -753,11 +753,30 @@ svg{
     position: relative;
 }
 
-.list-container::before{
+#li-contain ul li::before{
     content: '';
     position: absolute;
-    height: 28px;
-    width: 28px;
-    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+    background-image: url("../images/check/check-box-unchecked.svg");
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 12px;
+}
 
+#li-contain ul li.checked{
+    color: gray;
+    text-decoration: line-through;
+}
+
+#li-contain ul li.checked::before{
+background-image: url("../images/check/check-box.svg");
+}
+
+#list-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border: 1px solid #333;
 }
