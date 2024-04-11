@@ -10,7 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kurale&display=swap" rel="stylesheet">
-    <title>Study Bunny</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>IntelliKat</title>
 </head>
 <body>
     <div class="container">
@@ -92,26 +96,31 @@
                 </div>
                 <div class="shop-items">
                     <div class="accessories">
-                        <div class="card selector" id="sunglasses">
-                            <img id="sunglasses" src="images/accessories/sunglasses.png" alt="glasses" class="shop-item">
-                            <p id="sunglasses-card-price">500</p>
+                        <div class="card selector accessory" id="glasses">
+                            <div class="equipOverlay"></div>
+                            <img id="glasses" src="images/accessories/sunglasses.png" alt="glasses" class="shop-item">
+                            <p id="glasses-card-price">500</p>
                         </div>
-                        <div class="card selector" id="chain">
+                        <div class="card selector accessory" id="chain">
+                            <div class="equipOverlay"></div>
                             <img id="chain" src="images/accessories/chain.png" alt="chain" class="shop-item">
                             <p id="chain-card-price">300</p>
-                    </div>
+                        </div>
                     </div>
                     <h2 id="seperator">Tops:</h2>
                     <div class="tops">
-                        <div class="card selector" id="blueTop">
+                        <div class="card selector shirt" id="blueTop">
+                            <div class="equipOverlay"></div>
                             <img id="blueTop" src="images/accessories/blueTop.png" alt="flower" class="shop-item">
                             <p id="blueTop-card-price">300</p>
                         </div>
-                        <div class="card selector" id="pinkTop">
+                        <div class="card selector shirt" id="pinkTop">
+                            <div class="equipOverlay"></div>
                             <img id="pinkTop" src="images/accessories/pinkTop.png" alt="flower" class="shop-item">
                             <p id="pinkTop-card-price">300</p>
                         </div>
-                        <div class="card selector" id="purpleTop">
+                        <div class="card selector shirt" id="purpleTop">
+                            <div class="equipOverlay"></div>
                             <img id="purpleTop" src="images/accessories/purpleTop.png" alt="flower" class="shop-item">
                             <p id="purpleTop-card-price">300</p>
                         </div>
@@ -174,11 +183,12 @@
             <img id="roomEL" src="images/accessories/room.png" alt="room">
         </div>
         <div id="cat-sprite" class="basic-costume"></div>
+        <div class="sprite-popup"></div>
         <!-- <img id="catEL" class="selector" src="/images/cat_costumes/basic.png" alt=""> -->
 
-        <!-- <div class="footer">
-            <p id="quote"></p>
-        </div> -->
+        <div class="footer">
+            <p id="quote">Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
 
         <div id="overlay"></div>
         <div id="overlay"></div>

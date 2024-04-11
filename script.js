@@ -1,29 +1,73 @@
-let equippedCostume = 'basic-costume';
-let equippedAccessory = null;
-const equipCostume = (costume) => {
 
-}
-const equipAccessory = (accessory) => {
+const costumesClass = [
+    'blueTop-costume', 
+    'pinkTop-costume', 
+    'purpleTop-costume', 
+    'glasses-costume', 
+    'blueTopGlasses-costume', 
+    'pinkTopGlasses-costume', 
+    'purpleTopGlasses-costume'
+];
+const accessories = ['glasses', 'chain'];
 
-}
 const updateSprite = () => {
     const catSprite = document.getElementById('cat-sprite');
-    catSprite.classList.remove('basic-costume', 'basicGlasses-costume', 'basicChain-costume');
+    catSprite.classList = ''; //remove all classes
+    if (costumesClass.includes(equippedCostume + '-costume')) {
+        // catSprite.classList.add(equippedCostume);
+        // console.log(equippedCostume);
 
-    if (equippedCostume === 'basic-costume') {
-        catSprite.classList.add('basic-costume');
-    } else if (equippedCostume === 'basicGlasses-costume') {
-        catSprite.classList.add('basicGlasses-costume');
-    } else if (equippedCostume === 'basicChain-costume') {
-        catSprite.classList.add('basicHat-costume');
-    } else if (equippedCostume === 'basicHat-costume') {
-
+        if (equippedAccessory && accessories.includes(equippedAccessory)) {
+            catSprite.classList = ''; //remove all classes
+            catSprite.classList.add(`${equippedCostume}${equippedAccessory}-costume`);
+            console.log(`${equippedCostume}${equippedAccessory}-costume`);
+        }
+        else{
+            catSprite.classList.add(equippedCostume);
+            console.log(equippedCostume);
+        }
     }
+    // } else if (accessories.includes(equippedAccessory + '-costume')) {
+    //     catSprite.classList.add(equippedAccessory);
+    //     console.log(equippedAccessory);
+    // }
+
 }
 
+const initializeShop = () =>{
+    //store items in local storage
+    let boughtItems = {
+        glasses: localStorage.getItem('glasses'),
+        chain: localStorage.getItem('chain'),
+        blueTop: localStorage.getItem('blueTop'),
+        pinkTop: localStorage.getItem('pinkTop'),
+        purpleTop: localStorage.getItem('purpleTop'),
+    };
+
+    let savedAccessory = localStorage.getItem('equippedAccessory');
+    let savedCostume = localStorage.getItem('equippedCostume');
+    updateEquipTextStart('accessory', savedAccessory);
+    updateEquipTextStart('shirt', savedCostume);
+ 
+    //check if items have been bought
+    for (let i in boughtItems){
+        if (localStorage.getItem(i) === null){
+                localStorage.setItem(i, false);
+            }
+        else if (localStorage.getItem(i) === 'true'){
+            let itemPriceId = `${i}-card-price`;
+            updateItemP(itemPriceId);
+        }
+    }
+
+    console.log(boughtItems);
+}
+
+
+
 const shopItems = {
-    sunglasses: {   
-        name: document.querySelector('#sunglasses'),
+    glasses: {   
+        name: document.querySelector('#glasses'),
         price: 500
     },
     chain: {
@@ -42,6 +86,18 @@ const shopItems = {
         name: document.querySelector('#purpleTop'),
         price: 300
     }
+};
+
+const costumesSprites = {
+    basic: 'basic-costume',
+    blueTop: 'blueTop-costume',
+    pinkTop: 'pinkTop-costume',
+    purpleTop: 'purpleTop-costume',
+
+    basicGlasses: 'basicGlasses-costume',
+    blueTopGlasses: 'blueTopGlasses-costume',
+    pinkTopGlasses: 'pinkTopGlasses-costume',
+    purpleTopGlasses: 'purpleTopGlasses-costume',
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -71,9 +127,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // }
 });
 
+let equippedCostume = localStorage.getItem('equippedCostume');
+let equippedAccessory = localStorage.getItem('equippedAccessory');
 
 window.onload = () => {
     setUpEventListeners();
+    let equippedCostume = localStorage.getItem('equippedCostume');
+    let equippedAccessory = localStorage.getItem('equippedAccessory');
+    updateSprite();
 }
 
 const setUpEventListeners = () => {
@@ -103,6 +164,7 @@ const setUpEventListeners = () => {
     const shopItems = document.querySelectorAll('.shop-item');
 
     const catSprite = document.getElementById('cat-sprite');
+    const spritePopup = document.querySelector('.sprite-popup');
 
     if (slider){
         slider.oninput = () =>{
@@ -231,6 +293,7 @@ const setUpEventListeners = () => {
     const toggleShop = () =>{
         document.querySelector('.shop-modal').classList.toggle('active');
         overlay.classList.toggle('active');
+        spritePopup.classList.toggle('active');
     }
     
     const toggleMenu = () =>{
@@ -295,15 +358,65 @@ const setUpEventListeners = () => {
         if (catSprite.classList.contains('basic-costume')) {
             catSprite.style.animation = 'basicCatWave 1s infinite'; 
         } else if (catSprite.classList.contains('basicGlasses-costume')) {
-            catSprite.style.animation = 'waveAnimationCostume2 1s infinite'; // Apply costume 2 animation
+            catSprite.style.animation = 'basicGlassesWave 1s infinite'; // Apply costume 2 animation
+        } else if (catSprite.classList.contains('blueTop-costume')) {
+            catSprite.style.animation = 'blueTopWave 1s infinite'; // Apply costume 3 animation
+        } else if (catSprite.classList.contains('blueTopglasses-costume')) {
+            catSprite.style.animation = 'blueTopGlassesWave 1s infinite'; // Apply costume 4 animation
+        } else if (catSprite.classList.contains('pinkTop-costume')) {
+            catSprite.style.animation = 'pinkTopWave 1s infinite'; // Apply costume 5 animation
+        } else if (catSprite.classList.contains('pinkTopglasses-costume')) {
+            catSprite.style.animation = 'pinkTopGlassesWave 1s infinite'; // Apply costume 6 animation
+        } else if (catSprite.classList.contains('purpleTop-costume')) {
+            catSprite.style.animation = 'purpleTopWave 1s infinite'; // Apply costume 7 animation
+        } else if (catSprite.classList.contains('purpleTopglasses-costume')) {
+            catSprite.style.animation = 'purpleTopGlassesWave 1s infinite'; // Apply costume 8 animation
         }
         setTimeout(() => {
             catSprite.style.animation = ''; // Reset the animation after 1 second
         }, 1000);
     }
 
-    initializeShop();
+    // const handleCatClick = (equippedCostume) => {
+    //     const currentCostume = equippedCostume + '-costume'
+    //     if (costumesClass.includes(currentCostume)) {
+    //         catSprite.style.animation = `${equipCostume + '-wave'} 1s infinite`; 
+    //     } else if (!equipCostume){
+    //         catSprite.style.animation = 'basicCatWave 1s infinite';
+    //     }
+    //     setTimeout(() => {
+    //         catSprite.style.animation = ''; // Reset the animation after 1 second
+    //     }, 1000);
+    // }
 
+    const equipCostume = (costume) => {
+        //allow to equip only if bought
+        if (localStorage.getItem(costume) === 'false'){
+            console.log('Item not bought');
+        } else {
+            equippedCostume = costume;
+            updateEquipText('shirt', costume);
+            updateSprite();
+            setEquipToStorage(equippedAccessory, equippedCostume);
+        }
+    }
+
+    const equipAccessory = (accessory) => {
+        //allow to equip only if bought
+        if (localStorage.getItem(accessory) === 'false'){
+            console.log('Item not bought');
+        } else {
+            equippedAccessory = accessory;
+            updateEquipText('accessory', accessory);
+            updateSprite();
+            setEquipToStorage(equippedAccessory, equippedCostume);
+        }
+    }
+
+    ///TODO: fix updateEquipText function to only update text of bought items by checking local storage
+
+    //check if items have been bought
+    initializeShop();
 
     //event listeners
     hamburgerMenu.addEventListener('click', toggleMenu);
@@ -325,6 +438,7 @@ const setUpEventListeners = () => {
             // If the timer is not running and totalTime is not set, show the time modal
             showTimeModal();
         }
+        updateSprite();
     });
     pauseButton.addEventListener('click', pauseTimer);
     stopButton.addEventListener('click', () => {
@@ -346,31 +460,23 @@ const setUpEventListeners = () => {
     });
     // Add click event listener to the cat sprite
     catSprite.addEventListener('click', handleCatClick);
+
+    document.querySelectorAll('.accessory').forEach(accessory => {
+        accessory.addEventListener('click', () => {
+            const accessoryId = accessory.id;
+            equipAccessory(accessoryId);
+        });
+    });
+
+    document.querySelectorAll('.shirt').forEach(shirt => {
+        shirt.addEventListener('click', () => {
+            const shirtId = shirt.id;
+            equipCostume(shirtId);
+        });
+    });
 }
 
-const initializeShop = () =>{
-    //store items in local storage
-    let boughtItems = {
-        sunglasses: localStorage.getItem('sunglasses'),
-        chain: localStorage.getItem('chain'),
-        blueTop: localStorage.getItem('blueTop'),
-        pinkTop: localStorage.getItem('pinkTop'),
-        purpleTop: localStorage.getItem('purpleTop'),
-    };
- 
-    //check if items have been bought
-    for (let i in boughtItems){
-        if (localStorage.getItem(i) === null){
-                localStorage.setItem(i, false);
-            }
-        else if (localStorage.getItem(i) === 'true'){
-            let itemPriceId = `${i}-card-price`;
-            updateItemP(itemPriceId);
-        }
-    }
 
-    console.log(boughtItems);
-}
 const buyItem = (itemId) => {
     const item = shopItems[itemId]; // Access the item object using its identifier
     if (item) {
@@ -392,13 +498,6 @@ const buyItem = (itemId) => {
         console.log('Item not found!');
     }
 }
-// const updateItemP = (itemPrice) =>{
-//     // const item = document.getElementById(itemId, itemPrice);
-
-
-//     document.querySelector(`#${itemPrice}`).innerHTML = 'Bought!';
-//     document.querySelector(`#${itemPrice}`).style.color = 'green';
-// }
 
 const updateItemP = (itemPriceId) => {
     // gets the price element by its id and updates it
@@ -410,35 +509,73 @@ const updateItemP = (itemPriceId) => {
         console.log('Element not found:', itemPriceId);
     }
 }
+const updateEquipText = (type, id) => {
+    const accessory = document.querySelectorAll('.accessory');
+    const shirt = document.querySelectorAll('.shirt');
+     if (type === 'accessory'){
+        accessory.forEach(item => {
+            const itemId = item.id;
+            const itemPriceId = `${itemId}-card-price`; 
+            //itemPriceId.style.color = 'green';
+            if (item.id === id){
+                item.querySelector('.equipOverlay').classList.add('active');
+                setEquipToStorage(equippedAccessory, equippedCostume);
+            } else{
+                document.getElementById(itemPriceId).innerHTML = 'Bought!';
+                document.getElementById(itemPriceId).style.color = 'green';
+                item.querySelector('.equipOverlay').classList.remove('active');
+            }
+        });
+     } else if (type === 'shirt'){
+        shirt.forEach(item => {
+            const itemId = item.id;
+            const itemPriceId = `${itemId}-card-price`; 
+            //itemPriceId.style.color = 'green';
+            if (item.id === id){
+                item.querySelector('.equipOverlay').classList.add('active');
+                setEquipToStorage(equippedAccessory, equippedCostume);
+            } else{
+                document.getElementById(itemPriceId).innerHTML = 'Bought!';
+                document.getElementById(itemPriceId).style.color = 'green';
+                item.querySelector('.equipOverlay').classList.remove('active');
+            }
+        });
+    }
+}
+//update equipped items on page load
+const updateEquipTextStart = (type, id) => {
+    const accessory = document.querySelectorAll('.accessory');
+    const shirt = document.querySelectorAll('.shirt');
+     if (type === 'accessory'){
+        accessory.forEach(item => {
+            const itemId = item.id;
+            const itemPriceId = `${itemId}-card-price`; 
+            //itemPriceId.style.color = 'green';
+            if (item.id === id){
+                item.querySelector('.equipOverlay').classList.add('active');
+                setEquipToStorage(equippedAccessory, equippedCostume);
+            } else{
 
+                item.querySelector('.equipOverlay').classList.remove('active');
+            }
+        });
+     } else if (type === 'shirt'){
+        shirt.forEach(item => {
+            const itemId = item.id;
+            const itemPriceId = `${itemId}-card-price`; 
+            //itemPriceId.style.color = 'green';
+            if (item.id === id){
+                item.querySelector('.equipOverlay').classList.add('active');
+                setEquipToStorage(equippedAccessory, equippedCostume);
+            } else{
+                item.querySelector('.equipOverlay').classList.remove('active');
+            }
+        });
+    }
+}
 
-//API code to retrieve quote of the day
-//object to store study history
-// const fetchData = async() =>{
-//     const url = 'https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote?token=ipworld.info';
-//     const options = {
-//         method: 'GET',
-//         headers: {
-//             'X-RapidAPI-Key': 'a79c202c29msh3d60f4f1a64ce48p1aaa25jsne46a2eeb1e4c',
-//             'X-RapidAPI-Host': 'quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com'
-//         }
-//     };
-    
-//     try {
-//         const response = await fetch(url, options);
-//         const result = await response.json();
-//         console.log(result);
-//         quoteOfTheDay = result.text;
-//         document.getElementById('quote').innerHTML = quoteOfTheDay;
-
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }
-// //call function to retrieve promise
-// fetchData()
-
-//storing and retrieving user currency 
-
-
-
+//store equipped items in local storage
+const setEquipToStorage = (accessory, costume) => {
+    localStorage.setItem('equippedAccessory', accessory);
+    localStorage.setItem('equippedCostume', costume);
+}

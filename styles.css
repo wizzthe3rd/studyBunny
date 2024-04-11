@@ -52,7 +52,7 @@ button, input{
     border: 2px solid black;
     font-family: 'Gamja flower', cursive;
     font-size: 1.4em;
-    z-index: 200;
+    z-index: 800;
     position: absolute;
     top: 0;
     left: -230px;
@@ -547,19 +547,8 @@ svg{
     border: 3px solid black;
 }
 
-#quote{
-    font-family: "Just Another Hand", cursive;
-    color: #BC8C85;
-    font-weight: 700;
-    background-color: transparent;
-    font-size: 1.4em;
-    margin-top: 40px;
-    animation: float 6s ease-in-out infinite;
-}
-
 .room-section{
     margin-top: 30px;
-    margin-bottom: 30px;
     display: flex;
     justify-content: center;
 }
@@ -570,29 +559,106 @@ svg{
     width: 90%;
 }
 
+.equipOverlay{
+    position: fixed;
+    background-color: yellow;
+    opacity: 0.6;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid yellow;
+    transition: 200ms ease-in-out;
+    transform: scale(0);
+}
+
+.equipOverlay.active{
+    transform: scale(1);
+}
+
+.card p, .card img{
+    z-index: 600;
+}
+
 #cat-sprite{
-    background-image: url('/images/basicCAT/basic.png');
     background-size: cover;
     cursor: pointer;
     display: absolute;
-    width: 93px;
-    height: 128px;
-    z-index: 1;
-    transform: translate(0px, -220px);
+    width: 95px;
+    height: 138px;
+    z-index: 600;
+    transform: translate(0px, -210px);
 }
 
-/* #catSprite{
-    background-image: url('/images/cat_costumes/basicCAT/basicWave1.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    display: absolute;
-    width: 200px;
-    height: 158px;
-    z-index: 1;
-    transform: translate(60px, -240px);
-} */
+.sprite-popup{
+    z-index: 500;
+    position: fixed;
+    left: 120px;
+    border: 7px solid black;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    bottom: 170px;
+    width: 150px;
+    height: 150px;
+    background-color: #BC8C85;
+    transition: transform 0.5s ease-in-out;
+    transform: scale(0);
+}
 
+.sprite-popup.active{
+    transform: scale(1);
+}
+
+/* basic */
+.basic-costume{
+    background-image: url('/images/basicCAT/basic.png');
+}
+.glasses-costume{
+    background-image: url('/images/basic/BasicGlasses/g0.png');
+}
+.chain-costume{
+    background-image: url('/images/basic/basicChain/C.png');
+}
+.glasseschain-costume{
+    background-image: url('/images/basic/basicGlassesChain/G_C.png');
+}
+/* blue */
+.blueTop-costume{
+    background-image: url('/images/blue/blueTop/blue.png');
+}
+.blueTopglasses-costume{
+    background-image: url('/images/blue/blueTopGlasses/blue-glasses.png');
+}
+.blueTopglasseschain-costume{
+    background-image: url('/images/blue/blueTopGlassesChain/Bl_G_C.png');
+}
+.blueTopchain-costume{
+    background-image: url('/images/blue/blueTopChain/Bl_C.png ');
+}
+/* pink */
+.pinkTop-costume{
+    background-image: url('/images/pink/pinkTop/pink.png');
+}
+.pinkTopglasses-costume{
+    background-image: url('/images/pink/pinkTopGlasses/pink-glasses.png');
+}
+.pinkTopglasseschain-costume{
+    background-image: url('/images/pink/pinkTopGlassesChain/Pi_G_C.png');
+}
+.pinkTopchain-costume{
+    background-image: url('/images/pink/pinkTopChain/Pi_C.png');
+}
+/* purple */
+.purpleTop-costume{
+    background-image: url('/images/purple/purpleTop/purple.png');
+}
+.purpleTopchain-costume{
+    background-image: url('/images/purple/purpleTopChain/Pu_C.png');
+}
+.purpleTopglasses-costume{
+    background-image: url('/images/purple/purpleTopGlasses/pu0.png');
+}
+
+/* wave animations */
 @keyframes basicCatWave {
     0% {
         background-image: url(/images/basicCAT/basicWave1.png);
@@ -622,10 +688,9 @@ svg{
 
     }
 }
-
 @keyframes basicGlassesWave {
     0% {
-        background-image: url(/images/Basicglasses/G_C1.png);
+        background-image: url(/images/basic/basicGlasses/G1.png);
         background-size: contain;
         background-repeat: no-repeat;
         width: 200px;
@@ -634,7 +699,7 @@ svg{
 
     }
     50% {
-        background-image: url(/images/Basicglasses/G_C2.png);
+        background-image: url(/images/basic/basicGlasses/G2.png);
         background-size: contain;
         background-repeat: no-repeat;
         width: 200px;
@@ -643,7 +708,67 @@ svg{
 
     }
     100% {
-        background-image: url(/images/Basicglasses/G_C1.png);
+        background-image: url(/images/basic/basicGlasses/G1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    
+}
+@keyframes basicChainWave {
+    0% {
+        background-image: url(/images/basic/basicChain/C1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    50% {
+        background-image: url(/images/basic/basicChain/C2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    100% {
+        background-image: url(/images/basic/basicChain/C1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    
+}
+@keyframes basicGlassesChainWave {
+    0% {
+        background-image: url(/images/basic/basicGlassesChain/G_C1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    50% {
+        background-image: url(/images/basic/basicGlassesChain/G_C2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    100% {
+        background-image: url(/images/basic/basicGlassesChain/G_C1.png);
         background-size: contain;
         background-repeat: no-repeat;
         width: 200px;
@@ -653,19 +778,281 @@ svg{
     }
 }
 
+@keyframes blueTopWave {
+    0% {
+        background-image: url(/images/blue/blueTop/Bl1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    50% {
+        background-image: url(/images/blue/blueTop/Bl1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    100% {
+        background-image: url(/images/blue/blueTop/Bl1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+}
+@keyframes blueTopGlassesWave {
+    0% {
+        background-image: url(/images/blue/blueTopGlasses/Bl_G1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    50% {
+        background-image: url(/images/blue/blueTopGlasses/Bl_G2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    100% {
+        background-image: url(/images/blue/blueTopGlasses/Bl_G1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+}
+@keyframes blueTopChainWave {
+    0% {
+        background-image: url(/images/blue/blueTopChain/Bl_C1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    50% {
+        background-image: url(/images/blue/blueTopChain/Bl_C2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    100% {
+        background-image: url(/images/blue/blueTopChain/Bl_C1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+}
+@keyframes blueTopGlassesChainWave {
+    0% {
+        background-image: url(/images/blue/blueTopGlassesChain/Bl_G_C1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    50% {
+        background-image: url(/images/blue/blueTopGlassesChain/Bl_G_C2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    100% {
+        background-image: url(/images/blue/blueTopGlassesChain/Bl_G_C1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+}
+
+@keyframes pinkTopGlassesWave {
+    0% {
+        background-image: url(/images/pink/pinkTopGlasses/Pi_G1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    50% {
+        background-image: url(/images/pink/pinkTopGlasses/Pi_G2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    100% {
+        background-image: url(/images/pink/pinkTopGlasses/Pi_G1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+}
+@keyframes pinkTopWave {
+    0% {
+        background-image: url(/images/pink/pinkTop/Pi1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    50% {
+        background-image: url(/images/pink/pinkTop/Pi1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    100% {
+        background-image: url(/images/pink/pinkTop/Pi1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+}
+@keyframes pinkTopChainWave {
+    0% {
+        background-image: url(/images/pink/pinkTopChain/Pi_C1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    50% {
+        background-image: url(/images/pink/pinkTopChain/Pi_C2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    100% {
+        background-image: url(/images/pink/pinkTopChain/Pi_C1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+}
+@keyframes pinkTopGlassesWave {
+    0% {
+        background-image: url(/images/pink/pinkTopGlasses/Pi_G1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    50% {
+        background-image: url(/images/pink/pinkTopGlasses/Pi_G2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    100% {
+        background-image: url(/images/pink/pinkTopGlasses/Pi_G1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    } 
+}
+@keyframes pinkTopGlassesChain-Wave {
+    0% {
+        background-image: url(/images/pink/pinkTopGlassesChain/Pi_G_C1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    50% {
+        background-image: url(/images/pink/pinkTopGlassesChain/Pi_G_C2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    }
+    100% {
+        background-image: url(/images/pink/pinkTopGlassesChain/Pi_G_C1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 158px;
+        transform: translate(60px, -240px);
+
+    } 
+}
 
 @keyframes float {
     0% {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-2px);
+        transform: translateY(-5px);
     }
     75% {
-        transform: translateY(-1px);
+        transform: translateY(-3px);
     }
     100% {
-        transform: translateY(0px);
+        transform: translateY(-0px);
     }
 }
 .history-nav{
@@ -717,6 +1104,31 @@ svg{
     display: block;
 }
 
+.footer{
+    width: 80%;
+    height: 70px;
+    border-radius: 30px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    transform: translateY(-100px) scale(0);
+    transition: 200ms ease-in-out;
+}
+
+#quote{
+    font-family: "Just Another Hand", cursive;
+    color: #BC8C85;
+    font-weight: 700;
+    background-color: transparent;
+    font-size: 1.9em;
+    animation: float 6s ease-in-out infinite;
+}
+
+.footer.active{
+    transform: scale(1);
+}
+
+/*tdl styles */
 .tdl-nav{
     width: 100%;
     margin-top: 10px;
@@ -790,3 +1202,4 @@ svg{
     border-radius: 50%;
 
 }
+
