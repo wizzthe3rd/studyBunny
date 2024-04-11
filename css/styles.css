@@ -459,7 +459,6 @@ svg{
 }
 
 .shop-modal{
-    z-index: 149px;
     display: flex;
     justify-content: start;
     flex-direction: column;
@@ -471,7 +470,7 @@ svg{
     position: fixed;
     background-color: #E1F0DA; 
     border: 3px solid black;
-    z-index: 200;
+    z-index: 150;
     width: 300px;
     height: 280px;
     box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
@@ -597,7 +596,7 @@ svg{
     display: absolute;
     width: 95px;
     height: 138px;
-    z-index: 180;
+    z-index: 150;
     transform: translate(0px, -210px);
 }
 
