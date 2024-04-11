@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>To Do List</title>
 </head>
 <body>
@@ -25,20 +25,21 @@
             <div class="tdl-container">
                 <div class="row">
                     <input type="text" name="tdl" id="tdl-input" placeholder = "Enter Here">
-                    <button id="tdl-button">Add</button>
+                    <button onclick="addTask()" class="tdl-button">Add</button>
                 </div>
-                <ul class="list-container">
-                    <li>Task 1</li>
+                <div id="li-contain">
+                <ul id="list-container">
+                    <li class="checked">Task 1</li>
                     <li>Task 2</li>
                     <li>Task 3</li>
                 </ul>
+                </div>
             </div>
         </div>
         <div class="tdl-footer">
 
         </div>
     </div>
-
-    <script src="tdl_script.js" type="module"></script>
+    <script src="/javascript/tdl_script.js"></script>
 </body>
 </html>
