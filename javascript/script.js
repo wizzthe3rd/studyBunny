@@ -134,6 +134,12 @@ window.onload = () => {
     setUpEventListeners();
     let equippedCostume = localStorage.getItem('equippedCostume');
     let equippedAccessory = localStorage.getItem('equippedAccessory');
+    if (equippedCostume === null){
+        equippedCostume = 'basic';
+    }
+    if (equippedAccessory === null){
+        equippedAccessory = '';
+    }
     updateSprite();
 }
 
@@ -579,3 +585,38 @@ const setEquipToStorage = (accessory, costume) => {
     localStorage.setItem('equippedAccessory', accessory);
     localStorage.setItem('equippedCostume', costume);
 }
+
+
+const url = 'https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote?token=ipworld.info';
+const options = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': 'a79c202c29msh3d60f4f1a64ce48p1aaa25jsne46a2eeb1e4c',
+        'X-RapidAPI-Host': 'quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com'
+    }
+};
+
+// Function to fetch and display the quote
+async function fetchAndDisplayQuote() {
+    try {
+        const response = await fetch(url, options);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        const quote = result.text; // Assuming the API response contains the quote text
+
+        // Update the HTML content with the retrieved quote
+        const quoteDisplayElement = document.getElementById('quote');
+        quoteDisplayElement.innerHTML = quote; // Set the quote as text content of the <h3> element
+    } catch (error) {
+        console.error('Error fetching quote:', error);
+    }
+}
+
+// Immediately invoke the function to fetch and display the quote
+fetchAndDisplayQuote();
+
+

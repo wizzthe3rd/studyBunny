@@ -542,14 +542,24 @@ svg{
     border-radius: 8px;
     border: 3px solid black;
 }
-
+.quote-container{
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #F7F7F7;
+    border: 3px solid #BC8C85;
+    padding: 10px;
+    border-radius: 30px;
+    animation: float 6s ease-in-out infinite;
+}
 #quote{
-    font-family: "Just Another Hand", cursive;
-    color: #BC8C85;
+    text-align: center;
+    font-family: "Gamja Flower", cursive;
+    color: #333;
     font-weight: 700;
     background-color: transparent;
-    font-size: 1.4em;
-    /* animation: float 6s ease-in-out infinite; */
+    font-size: 1.6em;
 }
 
 .room-section{
@@ -1036,10 +1046,7 @@ svg{
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-5px);
-    }
-    75% {
-        transform: translateY(-3px);
+        transform: translateY(-10px);
     }
     100% {
         transform: translateY(-0px);
