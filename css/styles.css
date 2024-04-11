@@ -459,7 +459,7 @@ svg{
 }
 
 .shop-modal{
-    z-index: 200px;
+    z-index: 149px;
     display: flex;
     justify-content: start;
     flex-direction: column;
@@ -597,12 +597,12 @@ svg{
     display: absolute;
     width: 95px;
     height: 138px;
-    z-index: 600;
+    z-index: 180;
     transform: translate(0px, -210px);
 }
 
 .sprite-popup{
-    z-index: 500;
+    z-index: 110;
     position: fixed;
     left: 120px;
     border: 7px solid black;
