@@ -543,12 +543,13 @@ svg{
     border: 3px solid black;
 }
 .quote-container{
+    box-shadow: 4px 4px rgba(244,184,218, 0.7);
     position: absolute;
-    bottom: 40px;
+    bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     background-color: #F7F7F7;
-    border: 3px solid #BC8C85;
+    border: 4px solid #BC8C85;
     padding: 10px;
     border-radius: 30px;
     animation: float 6s ease-in-out infinite;
