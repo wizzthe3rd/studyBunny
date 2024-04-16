@@ -596,27 +596,27 @@ const options = {
     }
 };
 
-// Function to fetch and display the quote
-// async function fetchAndDisplayQuote() {
-//     try {
-//         const response = await fetch(url, options);
+//Function to fetch and display the quote
+async function fetchAndDisplayQuote() {
+    try {
+        const response = await fetch(url, options);
         
-//         if (!response.ok) {
-//             throw new Error(`HTTP error! Status: ${response.status}`);
-//         }
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         
-//         const result = await response.json();
-//         const quote = result.text; // Assuming the API response contains the quote text
+        const result = await response.json();
+        const quote = result.text; // Assuming the API response contains the quote text
 
-//         // Update the HTML content with the retrieved quote
-//         const quoteDisplayElement = document.getElementById('quote');
-//         quoteDisplayElement.innerHTML = quote; // Set the quote as text content of the <h3> element
-//     } catch (error) {
-//         console.error('Error fetching quote:', error);
-//     }
-// }
+        // Update the HTML content with the retrieved quote
+        const quoteDisplayElement = document.getElementById('quote');
+        quoteDisplayElement.innerHTML = quote; // Set the quote as text content of the <h3> element
+    } catch (error) {
+        console.error('Error fetching quote:', error);
+    }
+}
 
-// // Immediately invoke the function to fetch and display the quote
-// fetchAndDisplayQuote();
+// Immediately invoke the function to fetch and display the quote
+fetchAndDisplayQuote();
 
 
