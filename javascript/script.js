@@ -283,11 +283,11 @@ const setUpEventListeners = () => {
                     switchButtons();
                 } else{
                     //decrements time every second
-                    totalTime--;
+                    totalTime-=1;
                 }
         
         
-             }, 10)   // 1000ms = 1s occurs every second
+             }, 1)   // 1000ms = 1s occurs every second
             
     }
 
